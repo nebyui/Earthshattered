@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cttymv42i7bj6"]
+
+[ext_resource type="Script" path="res://assault_rifle.gd" id="1_01371"]
+[ext_resource type="Texture2D" uid="uid://cb5ja7pu6p02n" path="res://Assets/gun_sprite.png" id="1_tnd6k"]
+
+[node name="AssaultRifle" type="Node2D"]
+script = ExtResource("1_01371")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(67, 45)
+texture = ExtResource("1_tnd6k")
+
+[node name="GunBarrel" type="Marker2D" parent="."]
+position = Vector2(270, 0)

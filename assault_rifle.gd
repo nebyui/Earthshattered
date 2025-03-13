@@ -1,0 +1,49 @@
+# assault_rifle.gd
+
+extends Node2D
+
+var bullet = preload("res://bullet.tscn")
+var fire_rate: int = 5
+var fire_timer: int = fire_rate
+var fire_ready: bool = true
+var bullet_speed: int = 15000
+
+var is_automatic = true
+
+
+@onready var gun_barrel = $GunBarrel
+
+func _ready() -> void:
+	pass
+
+
+func _process(delta: float) -> void:
+	pass
+	
+		
+
+func _physics_process(delta: float) -> void:
+	if fire_ready == false:
+		
+		if fire_timer <= 0:
+			fire_ready = true
+			fire_timer = fire_rate
+		else:
+			fire_timer -= 1
+
+
+func trigger_pressed(character: String):
+	if fire_ready == true:
+		fire_ready = false
+		var bullet_instance = bullet.instantiate()
+		bullet_instance.speed = bullet_speed
+		if character == "player":
+			bullet_instance.set_collision_mask_value(3, true)
+		elif character == "enemy":
+			bullet_instance.set_collision_mask_value(2, true)
+		bullet_instance.global_position = gun_barrel.global_position
+		bullet_instance.rotation = global_rotation
+		get_tree().root.add_child(bullet_instance)
+
+func trigger_released():
+	pass
