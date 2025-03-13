@@ -12,7 +12,7 @@ var current_jumps: int = max_jumps
 var upper_ray
 var lower_ray
 
-var base_health = 999999999999
+var base_health = 9999999999999
 var current_health = base_health
 var direction
 
