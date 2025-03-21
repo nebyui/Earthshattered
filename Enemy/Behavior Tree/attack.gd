@@ -14,7 +14,6 @@ func behavior_process(entity, distance_to_player):
 	else:
 		entity.velocity.x = 0
 		entity.direction = 0
-
 	if shoot_timer <= 0:
 		shoot_timer = shoot_timer_base
 	else:

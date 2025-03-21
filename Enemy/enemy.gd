@@ -21,6 +21,7 @@ var direction = 0
 @onready var player_group = get_tree().get_nodes_in_group("Player")
 @onready var behavior_tree = $BehaviorTree
 @onready var gun_holder = find_child("GunHolder")
+@onready var skeleton = find_child("Skeleton2D")
 var player
 
 
@@ -94,10 +95,10 @@ func _process(delta: float) -> void:
 	
 	if is_on_floor():
 		if direction == -1:
-			transform.x.x = -1
+			skeleton.transform.x.x = -1
 			animation_player.play("run")
 		elif direction == 1:
-			transform.x.x = 1
+			skeleton.transform.x.x = 1
 			animation_player.play("run")
 		else:
 			animation_player.play("RESET")
@@ -126,11 +127,11 @@ func jump():
 	if !is_on_floor():
 		if lower_ray == 1:
 			velocity.y = jump_strength
-			velocity.x = jump_strength * transform.x.x
+			velocity.x = jump_strength
 			current_jumps = max_jumps - 1
 		elif lower_ray == -1:
 			velocity.y = jump_strength
-			velocity.x = - jump_strength * transform.x.x
+			velocity.x = - jump_strength
 			current_jumps = max_jumps - 1
 		elif current_jumps > 0:
 			velocity.y = jump_strength

@@ -1,0 +1,101 @@
+[gd_scene load_steps=5 format=3 uid="uid://bc55nvncm2d7m"]
+
+[ext_resource type="Script" path="res://collision_polygon.gd" id="1_viny5"]
+[ext_resource type="Script" path="res://level.gd" id="1_w36d3"]
+[ext_resource type="PackedScene" uid="uid://cynnehpoapset" path="res://Enemy/enemy.tscn" id="3_vgkd4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eebqn"]
+size = Vector2(3263, 4069)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_w36d3")
+
+[node name="Background" type="Polygon2D" parent="."]
+z_index = -5
+color = Color(0.16, 0.10528, 0.0736, 1)
+polygon = PackedVector2Array(1766, -9365, 14182, -17557, 44646, -26261, 75494, -24085, 86630, -3861, 86118, 17515, 64230, 33131, 16742, 28267, -7450, 23915, -13978, 5867, -8730, -5269)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(474, -39, 502, -8874, -2542, -8871, -3188, 6521, 34194, 9587, 57684, 12101, 72009, 11871, 70798, -17222, 67682, -17366, 67969, -6818, 54544, -6962, 54688, 3826, 46106, 4257, 35415, 3983, 30259, 2889, 30253, 2054, 29229, 1964, 26963, -388, 26778, -503, 22326, -1353, 17068, -4357, 12706, -4756, 10682, -4058, 7093, -1507, 2969, -72)
+script = ExtResource("1_viny5")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+color = Color(0.45, 0.2925, 0.18, 1)
+polygon = PackedVector2Array(474, -39, 502, -8874, -2542, -8871, -3188, 6521, 34194, 9587, 57684, 12101, 72009, 11871, 70798, -17222, 67682, -17366, 67969, -6818, 54544, -6962, 54688, 3826, 46106, 4257, 35415, 3983, 30259, 2889, 30253, 2054, 29229, 1964, 26963, -388, 26778, -503, 22326, -1353, 17068, -4357, 12706, -4756, 10682, -4058, 7093, -1507, 2969, -72)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(41340, -622)
+polygon = PackedVector2Array(-9803, -296, -8793, -1015, -8551, -1086, -3895.48, -990.502, -3712, -3407, -3467, -3399, -3364, -1008, -556, -922, 1554, 229, 115, 1331, -8036, 1283, -9808, 1055)
+script = ExtResource("1_viny5")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D2"]
+color = Color(0.45, 0.2925, 0.18, 1)
+polygon = PackedVector2Array(-9803, -296, -8793, -1015, -8551, -1086, -3895.48, -990.502, -3712, -3407, -3467, -3399, -3364, -1008, -556, -922, 1554, 229, 115, 1331, -8036, 1283, -9808, 1055)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(50645, -6715)
+polygon = PackedVector2Array(436, 2162, 2186, 340, 2312, 9096, 510, 9107)
+script = ExtResource("1_viny5")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D3"]
+color = Color(0.45, 0.2925, 0.18, 1)
+polygon = PackedVector2Array(436, 2162, 2186, 340, 2312, 9096, 510, 9107)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(9985, -28232)
+polygon = PackedVector2Array(-421, -4517, 19514, 21515, -2253, 13182)
+script = ExtResource("1_viny5")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D4"]
+polygon = PackedVector2Array(-421, -4517, 19514, 21515, -2253, 13182)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("3_vgkd4")]
+position = Vector2(5742, -1675)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("3_vgkd4")]
+position = Vector2(12853, -5770)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("3_vgkd4")]
+position = Vector2(22624, -2393)
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("3_vgkd4")]
+position = Vector2(33040, 2851)
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource("3_vgkd4")]
+position = Vector2(37853, 2994)
+
+[node name="Enemy6" parent="Enemies" instance=ExtResource("3_vgkd4")]
+position = Vector2(34836, -3112)
+
+[node name="Enemy7" parent="Enemies" instance=ExtResource("3_vgkd4")]
+position = Vector2(39865, -2824)
+
+[node name="Enemy8" parent="Enemies" instance=ExtResource("3_vgkd4")]
+position = Vector2(42379, 2492)
+
+[node name="Enemy9" parent="Enemies" instance=ExtResource("3_vgkd4")]
+position = Vector2(48342, 2707)
+
+[node name="Enemy10" parent="Enemies" instance=ExtResource("3_vgkd4")]
+position = Vector2(57106, -8140)
+
+[node name="Enemy11" parent="Enemies" instance=ExtResource("3_vgkd4")]
+position = Vector2(61201, -8428)
+
+[node name="Enemy12" parent="Enemies" instance=ExtResource("3_vgkd4")]
+position = Vector2(65080, -8428)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(66144, -8863)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_eebqn")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

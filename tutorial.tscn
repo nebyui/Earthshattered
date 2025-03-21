@@ -143,24 +143,25 @@ modifications/6 = SubResource("SkeletonModification2DCCDIK_wrcm7")
 
 [node name="Tutorial" type="Node2D"]
 position = Vector2(823, 591)
+scale = Vector2(-0.995, 1)
 
 [node name="CharacterContainer" type="Node2D" parent="."]
 
 [node name="Body" type="Node2D" parent="CharacterContainer"]
 
 [node name="GBotArmL" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(nan, nan)
-rotation = nan
-scale = Vector2(nan, nan)
-skew = nan
+position = Vector2(66.0012, -176.996)
+rotation = 1.52341
+scale = Vector2(1.04403, -0.975397)
+skew = 0.00047195
 texture = ExtResource("1_5m7nx")
 offset = Vector2(4, 32)
 
 [node name="GBotForearmL" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(nan, nan)
-rotation = nan
-scale = Vector2(nan, nan)
-skew = nan
+position = Vector2(162.938, -192.002)
+rotation = 1.52341
+scale = Vector2(8.93306, -0.151846)
+skew = 0.00047183
 texture = ExtResource("2_dub50")
 offset = Vector2(22, 64)
 
@@ -230,16 +231,18 @@ texture = ExtResource("12_2bliv")
 offset = Vector2(35, 7)
 
 [node name="GBotArmR" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(-110, -158)
-rotation = 0.939524
-scale = Vector2(1.09969, 0.997717)
+position = Vector2(-110, -157.996)
+rotation = -2.26714
+scale = Vector2(1.04158, -0.976286)
+skew = 0.00492859
 texture = ExtResource("13_ol8m0")
 offset = Vector2(12, 31)
 
 [node name="GBotForearmR" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(-210.571, -99.4588)
-rotation = 0.939525
-scale = Vector2(1.02021, 1.21104)
+position = Vector2(-189.892, -76.9951)
+rotation = -2.26714
+scale = Vector2(2.2671, -0.504756)
+skew = 0.00492847
 texture = ExtResource("14_70ps8")
 offset = Vector2(15, 73)
 
@@ -379,7 +382,7 @@ remote_path = NodePath("../../../../Body/GBotBody")
 [node name="IK Targets" type="Node2D" parent="CharacterContainer"]
 
 [node name="FootRTarget" type="Node2D" parent="CharacterContainer/IK Targets"]
-position = Vector2(-113, 210)
+position = Vector2(-109, 152)
 
 [node name="FootR Lookat" type="Node2D" parent="CharacterContainer/IK Targets/FootRTarget"]
 position = Vector2(109, -1)

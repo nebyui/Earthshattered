@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4vys5gx0hfdm"]
+[gd_scene load_steps=3 format=3 uid="uid://c4vys5gx0hfdm"]
 
-[ext_resource type="Script" path="res://collision_shape.gd" id="1_r2otx"]
-[ext_resource type="PackedScene" uid="uid://cfjwca57asb0a" path="res://player.tscn" id="2_0sw5t"]
+[ext_resource type="Script" path="res://collision_polygon.gd" id="1_r2otx"]
 [ext_resource type="PackedScene" uid="uid://cynnehpoapset" path="res://Enemy/enemy.tscn" id="4_oxnq6"]
 
 [node name="Stage" type="Node2D"]
@@ -34,12 +33,6 @@ script = ExtResource("1_r2otx")
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D3"]
 color = Color(0.27, 0.27, 0.27, 1)
 polygon = PackedVector2Array(436, 2162, 2186, 340, 2312, 9096, 510, 9107)
-
-[node name="Player" parent="." instance=ExtResource("2_0sw5t")]
-position = Vector2(1707, -1587)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(0.2, 0.2)
 
 [node name="Enemies" type="Node" parent="."]
 

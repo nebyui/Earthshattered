@@ -12,6 +12,7 @@ var is_automatic = true
 
 
 @onready var gun_barrel = $GunBarrel
+@onready var gun_sound = $GunSound
 
 func _ready() -> void:
 	pass
@@ -37,13 +38,17 @@ func trigger_pressed(character: String):
 		fire_ready = false
 		var bullet_instance = bullet.instantiate()
 		bullet_instance.speed = bullet_speed
+		gun_sound.pitch_scale = randf_range(0.9, 1.1)
 		if character == "player":
 			bullet_instance.set_collision_mask_value(3, true)
 		elif character == "enemy":
 			bullet_instance.set_collision_mask_value(2, true)
+			bullet_instance.speed /= 2
+			gun_sound.pitch_scale -= .4
 		bullet_instance.global_position = gun_barrel.global_position
 		bullet_instance.rotation = global_rotation
 		get_tree().root.add_child(bullet_instance)
+		gun_sound.play()
 
 func trigger_released():
 	pass
