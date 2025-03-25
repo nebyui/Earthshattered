@@ -3,20 +3,22 @@
 extends CharacterBody2D
 
 
-var base_speed = 5000
-var running_speed = base_speed
-var shooting_speed = base_speed / 2
+var base_speed = 4500
+var shooting_speed = base_speed / 1.8
+var sprinting_speed = base_speed * 1.5
 var jump_strength = -4500
 var max_jumps: int = 2
 var current_jumps: int = max_jumps
 var ray
-var current_leg_animation = "none"
+var current_animation = "none"
+var jump_from_ground = false
 
 var base_health = 9999999999999
 var current_health = base_health
 var direction
 
-@onready var leg_animation_player = $LegAnimationPlayer
+@onready var animation_player = $AnimationPlayer
+#@onready var arm_animation_player = $ArmAnimationPlayer
 @onready var gun_holder = find_child("GunHolder")
 @onready var skeleton = find_child("Skeleton2D")
 
@@ -65,6 +67,7 @@ func physics_input():
 
 	
 	if Input.is_action_just_pressed("jump"):
+		jump_from_ground = false
 		#print(lower_ray)
 		if !is_on_floor():
 			if ray == 1:
@@ -77,32 +80,40 @@ func physics_input():
 				current_jumps = max_jumps - 1
 			elif current_jumps > 0:
 				if direction == 1:
-					velocity.x = running_speed
+					velocity.x = base_speed
 				elif direction == -1:
-					velocity.x = -running_speed
+					velocity.x = -base_speed
 				#elif direction == 0:
 					#velocity.x = 0
 				velocity.y = jump_strength
 				current_jumps -= 1
 		else:
+			jump_from_ground = true
 			velocity.y = jump_strength
 			current_jumps -= 1
 	
 	
 	if Input.is_action_pressed("shoot"):
-		running_speed = shooting_speed
 		gun_holder.player_shoot()
-	else:
-		running_speed = base_speed
+
 	
 	if is_on_floor():
 		if direction:
-			velocity.x = direction * running_speed
+			if Input.is_action_pressed("shoot"):
+				velocity.x = direction * shooting_speed
+			elif Input.is_action_pressed("sprint"):
+				velocity.x = direction * sprinting_speed
+			else:
+				velocity.x = direction * base_speed
 		else:
-			velocity.x = move_toward(velocity.x, 0, running_speed)
+			velocity.x = move_toward(velocity.x, 0, base_speed)
 	elif !is_on_floor():
 		if direction != 0:
-			velocity.x = move_toward(velocity.x, direction * running_speed, running_speed / 20)
+			if (velocity.x > base_speed and direction > 0) or \
+			(velocity.x < -base_speed and direction < 0):
+				pass
+			else:
+				velocity.x = move_toward(velocity.x, direction * base_speed, base_speed / 20)
 	
 
 
@@ -113,42 +124,58 @@ func _process(delta: float) -> void:
 	#print(animation_player.current_animation)
 
 func process_input():
-	leg_animation_player.speed_scale = 1
+	animation_player.speed_scale = 1
 	
 	if is_on_floor():
 		if Input.is_action_pressed("shoot"): 
 			if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
-				play_leg_animation("straf")
+				play_animation("straf")
 			else:
-				play_leg_animation("stand")
+				play_animation("stand_shoot")
 			shooting_visuals()
 		elif Input.is_action_pressed("left"):
 			skeleton.transform.x.x = -1
-			play_leg_animation("run")
+			if Input.is_action_pressed("sprint"):
+				play_animation("sprint")
+			else:
+				play_animation("run")
 		elif Input.is_action_pressed("right"):
 			skeleton.transform.x.x = 1
-			play_leg_animation("run")
+			if Input.is_action_pressed("sprint"):
+				play_animation("sprint")
+			else:
+				play_animation("run")
 		else:
-			play_leg_animation("stand")
+			play_animation("stand")
 		
 	elif !is_on_floor():
+		
+		if Input.is_action_pressed("jump"):
+			if jump_from_ground == false:
+				animation_player.play("air_jump")
+				#arm_animation_player.play("air_jump")
+			else:
+				animation_player.play("jump")
+				#arm_animation_player.play("jump")
 		
 		if ray != 0:
 			if ray == 1:
 				if skeleton.transform.x.x == 1:
-					play_leg_animation("front_wall_cling")
+					play_animation("front_wall_cling")
 				elif skeleton.transform.x.x == -1:
-					play_leg_animation("back_wall_cling")
+					play_animation("back_wall_cling")
 			elif ray == -1:
 				if skeleton.transform.x.x == -1:
-					play_leg_animation("front_wall_cling")
+					play_animation("front_wall_cling")
 				elif skeleton.transform.x.x == 1:
-					play_leg_animation("back_wall_cling")
-		elif leg_animation_player.current_animation != "jump":
-			play_leg_animation("air")
+					play_animation("back_wall_cling")
+		elif animation_player.current_animation != "jump":
+			play_animation("air")
 			
 		if Input.is_action_pressed("shoot"):
 			shooting_visuals()
+		else:
+			pass
 
 	
 func take_damage(damage: int):
@@ -158,11 +185,11 @@ func shooting_visuals():
 	if global_position.x < get_global_mouse_position().x:
 		skeleton.transform.x.x = 1
 		if Input.is_action_pressed("left"):
-			leg_animation_player.speed_scale = -1
+			animation_player.speed_scale = -1
 	elif global_position.x > get_global_mouse_position().x:
 		skeleton.transform.x.x = -1
 		if Input.is_action_pressed("right"):
-			leg_animation_player.speed_scale = -1
+			animation_player.speed_scale = -1
 
 	$Skeleton2D/Base/Body/ArmR.look_at(get_global_mouse_position())
 	#$Skeleton2D/Base/Body/ArmR/ForearmR.look_at(get_local_mouse_position())
@@ -171,8 +198,9 @@ func shooting_visuals():
 	#$Skeleton2D/Base/Body/ArmL.rotation_degrees += -90
 	$Skeleton2D/Base/Body/Head.look_at(get_global_mouse_position())
 	
-func play_leg_animation(animation_name: String):
-	if animation_name != current_leg_animation:
-		leg_animation_player.play(animation_name)
-		current_leg_animation = animation_name
+func play_animation(animation_name: String):
+	if animation_name != current_animation:
+		animation_player.play(animation_name)
+		current_animation = animation_name
 	#print(current_leg_animation)
+	

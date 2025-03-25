@@ -7,5 +7,6 @@ var fps
 
 func _process(delta: float) -> void:
 	fps = Engine.get_frames_per_second()
+	#$CanvasLayer/Label.text = str($Player.velocity.x)
 	$CanvasLayer/Label.text = str(fps)
 	pass
