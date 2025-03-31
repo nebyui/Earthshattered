@@ -46,7 +46,6 @@ func _physics_process(delta: float) -> void:
 	
 	
 func physics_input():
-	#print("INPUT")
 	direction = Input.get_axis("left", "right")
 	
 	if direction > 0:
@@ -55,10 +54,8 @@ func physics_input():
 		direction = -1
 	
 	if $RightLowerRay.is_colliding():
-		#print("RIGHT RAY")
 		lower_ray = 1
 	elif $LeftLowerRay.is_colliding():
-		#print("LEFT RAY")
 		lower_ray = -1
 	else:
 		lower_ray = 0
@@ -72,7 +69,6 @@ func physics_input():
 		upper_ray = 0
 	
 	if Input.is_action_just_pressed("jump"):
-		#print(lower_ray)
 		if !is_on_floor():
 			if lower_ray == 1:
 				velocity.y = jump_strength
@@ -112,7 +108,6 @@ func _process(delta: float) -> void:
 	if current_health > 0:
 		process_input()
 		
-	#print(animation_player.current_animation)
 
 func process_input():
 	

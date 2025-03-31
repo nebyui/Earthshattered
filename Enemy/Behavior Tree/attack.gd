@@ -6,7 +6,6 @@ var shoot_timer_base = 120
 var shoot_timer = shoot_timer_base
 
 func behavior_process(entity, distance_to_player):
-	#print("ATTACK ACTIVE")
 	if distance_to_player > 3250:
 		entity.velocity.x = entity.direction * entity.shooting_speed
 	elif distance_to_player < 2750: 
@@ -21,5 +20,4 @@ func behavior_process(entity, distance_to_player):
 		if shoot_timer <= 60:
 			entity.shooting()
 	
-	#print(entity.shooting_speed)
 	

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bl7jir2jyg2wm"]
+[gd_scene load_steps=6 format=3 uid="uid://bl7jir2jyg2wm"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_efqlg"]
 [ext_resource type="PackedScene" uid="uid://bc55nvncm2d7m" path="res://level.tscn" id="2_vsa4w"]
+[ext_resource type="AudioStream" uid="uid://c5xh37vl7mb7o" path="res://Assets/2 - Galactic Odyssey (Loop).ogg" id="4_8o7pm"]
 [ext_resource type="PackedScene" uid="uid://cfjwca57asb0a" path="res://player.tscn" id="4_d0r1p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wptp0"]
@@ -29,12 +30,32 @@ grow_vertical = 2
 text = "TEST"
 label_settings = SubResource("LabelSettings_wptp0")
 
+[node name="Label2" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1187.0
+offset_top = -587.0
+offset_right = -439.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST"
+label_settings = SubResource("LabelSettings_wptp0")
+
 [node name="LevelContainer" type="Node2D" parent="."]
 
 [node name="Level" parent="LevelContainer" instance=ExtResource("2_vsa4w")]
 
 [node name="Player" parent="." instance=ExtResource("4_d0r1p")]
-position = Vector2(53853, 2537)
+position = Vector2(1673, -32426)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.2, 0.2)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8o7pm")
+volume_db = -10.0
+autoplay = true

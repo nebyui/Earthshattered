@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c5xh37vl7mb7o"
+path="res://.godot/imported/2 - Galactic Odyssey (Loop).ogg-824d28ab507e7c7512d0f3330863cdeb.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/2 - Galactic Odyssey (Loop).ogg"
+dest_files=["res://.godot/imported/2 - Galactic Odyssey (Loop).ogg-824d28ab507e7c7512d0f3330863cdeb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

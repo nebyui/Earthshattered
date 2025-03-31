@@ -7,6 +7,7 @@ var fire_rate: int = 5
 var fire_timer: int = fire_rate
 var fire_ready: bool = true
 var bullet_speed: int = 15000
+var gun_damage: int = 20
 
 var is_automatic = true
 
@@ -47,6 +48,7 @@ func trigger_pressed(character: String):
 			gun_sound.pitch_scale -= .4
 		bullet_instance.global_position = gun_barrel.global_position
 		bullet_instance.rotation = global_rotation
+		bullet_instance.bullet_damage = gun_damage
 		get_tree().root.add_child(bullet_instance)
 		gun_sound.play()
 

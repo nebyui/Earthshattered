@@ -3,7 +3,6 @@
 extends Node
 
 func behavior_process(entity, distance_to_player):
-	#print("IDLE ACTIVE")
 	
 	entity.direction = 0
 	

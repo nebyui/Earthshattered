@@ -10,6 +10,7 @@ var previous_position: Vector2
 var next_position: Vector2
 var hit_target
 var frame = 0
+var bullet_damage: int
 
 var interpolation_fraction
 
@@ -39,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		hit_target = collision.get_collider()
 		if hit_target is CharacterBody2D:
-			hit_target.take_damage(10)
+			hit_target.take_damage(bullet_damage)
 		queue_free()
 		
 	previous_position = next_position

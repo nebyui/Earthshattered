@@ -1,101 +1,271 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc55nvncm2d7m"]
+[gd_scene load_steps=6 format=3 uid="uid://bc55nvncm2d7m"]
 
 [ext_resource type="Script" path="res://collision_polygon.gd" id="1_viny5"]
 [ext_resource type="Script" path="res://level.gd" id="1_w36d3"]
-[ext_resource type="PackedScene" uid="uid://cynnehpoapset" path="res://Enemy/enemy.tscn" id="3_vgkd4"]
+[ext_resource type="Script" path="res://enemy_spawn_points.gd" id="3_7ytgr"]
+[ext_resource type="Script" path="res://player_spawn_points.gd" id="4_42cwd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eebqn"]
-size = Vector2(3263, 4069)
+size = Vector2(6731, 5334)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_w36d3")
 
 [node name="Background" type="Polygon2D" parent="."]
 z_index = -5
+position = Vector2(4533, 2773)
 color = Color(0.16, 0.10528, 0.0736, 1)
-polygon = PackedVector2Array(1766, -9365, 14182, -17557, 44646, -26261, 75494, -24085, 86630, -3861, 86118, 17515, 64230, 33131, 16742, 28267, -7450, 23915, -13978, 5867, -8730, -5269)
+polygon = PackedVector2Array(-70882, -37109, -10594, -47861, 20126, -48501, 33054, -40821, 57246, -19189, 63134, 30219, 22174, 39307, -54370, 43275, -87394, 30347)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(474, -39, 502, -8874, -2542, -8871, -3188, 6521, 34194, 9587, 57684, 12101, 72009, 11871, 70798, -17222, 67682, -17366, 67969, -6818, 54544, -6962, 54688, 3826, 46106, 4257, 35415, 3983, 30259, 2889, 30253, 2054, 29229, 1964, 26963, -388, 26778, -503, 22326, -1353, 17068, -4357, 12706, -4756, 10682, -4058, 7093, -1507, 2969, -72)
+polygon = PackedVector2Array(1438, -375, 1299, -502, 1057, -1206, 405, -1964, 128, -4487, -75, -35624, -18, -35752, 118, -35791, 2108, -36066, 3365, -35712, 3591, -35610, 3696, -35462, 3860, -3664, 8281, -4629, 12103, -4315, 14273, -2153, 16935, -1636, 20096, -1814, 23029, -3425, 28521, -4086, 32691, -2518, 34852, -1933, 36064, 76, 36283, 5287, 36095, 7587, 35866, 7910, 34615, 8233, 34332, 8596, 33915, 9632, 32973, 10763, 30538, 11664, 28439, 13225, 27443, 13427, 22627, 13763, 16384, 13575, 14190, 12830, 12732, 12907, 8856, 14356, 2082, 15089, 674, 14719, 532, 14456, 539, 12882, 714, 12701, 1773, 12296, 4693, 12113, 4810, 12002, 4817, 11185, 4723, 11074, -2939, 11502, -4659, 12333, -6265, 12384, -7702, 11954, -9637, 12005, -9744, 12096, -10248, 16027, -12110, 16989, -14939, 17073, -17516, 16114, -17623, 13813, -18265, 13417, -24804, 13567, -24939, 13351, -24935, 7202, -24785, 6807, -23677, 6675, -22011, 6729, -21219, 7041, -21112, 6963, -21130, 5338, -21195, 5255, -25315, 3496, -27391, 1800, -27436, 1727, -27446, -204, -27374, -300, -26050, -1202, -18338, -1141, -18218, -1164, -18221, -1776, -18233, -1945, -22606, -2574, -28062, -3695, -31137, -3617, -31173, -3553, -31409, -3139, -31993, -2510, -33212, -2098, -34165, -2136, -35021, -2587, -35501, -3012, -35623, -3408, -35667, -3438, -36558, -3477, -36612, -3406, -36781, -2777, -37279, -2307, -38086, -2129, -38800, -2129, -39351, -2472, -39634, -2955, -39734, -3316, -39760, -3343, -40657, -3353, -40677, -3325, -40855, -2760, -41383, -2413, -42096, -2305, -42930, -2197, -43760, -2353, -44237, -2828, -44335, -3203, -44357, -3222, -44894, -3234, -44925, -3210, -45520, -2536, -46132, -2320, -49728, -1642, -52205, 536, -53753, 877, -53778, 905, -53904, 1494, -53887, 1520, -52682, 1825, -51659, 2430, -51377, 7815, -50489, 10586, -49506, 16416, -49305, 17836, -48060, 19384, -46557, 21909, -45340, 23490, -42723, 24803, -41439, 24946, -41010, 24785, -41015, 24516, -41768, 24347.3, -42132, 24213, -42107, 22739, -41200, 22191, -39251, 21447, -36878, 21477, -34775, 22168, -34136, 22660, -34114, 24357, -34493, 24399, -35081, 24541, -35652, 24708, -35641, 24980, -34572, 25206, -32216, 26388, -26947, 27995, -23934, 27873, -21623, 27315, -19489, 27239, -17025, 27289, -3752, 20178, -1718, 19937, 5459, 21389, 13764, 20421, 24972, 20018, 43034, 15503, 45615, 4133, 42793, -5059, 35965, -12458, 11288, -11874, 11002, -39583, -5535, -41748, -7472, -1765, -14132, -6538, -23696, -9180, -25310, -8440, -46614, -9413, -71407, -9452, -76478, 31262, -47969, 38218, -26759, 39928, -9989, 36538, -3282, 32907, -4339, 20493, -17006, 27280, -13673, 27518, -11362, 28483, -10832, 32222, -11134, 32758, -12555, 33639, -14269, 33680, -19215, 33590, -22205, 33120, -25879, 30643, -29680, 29789, -32243, 28123, -36174, 26565, -37394, 26005, -37428, 24768, -37487, 24564, -37607.2, 24378, -38517, 24352, -38584, 24488, -38640, 24708, -38716, 25895, -39508, 26284, -40662, 26661, -44208, 26469, -46183, 25658, -47956, 24067, -51257, 21782, -54758, 20868, -56927, 19612, -63668, 18986, -66788, 17083, -67320, 15292, -67091, 11458, -65490, 9830, -64400, 4610, -62436, 4596, -61911, 1811, -60942, 641, -57160, -361, -53786, -2924, -48575, -3692, -44220, -5660, -39304, -5999, -34405, -6287, -22091, -5430, -17453, -4270, -16269, -2480, -16269, 117, -16834, 628, -18731, 890, -19131, 909, -19283, 1185, -18928.8, 1621.97, -18921, 3338, -18615, 5730, -18661, 8543, -18984, 8879, -22441, 9028, -22493, 9100, -22512, 11370, -22459.9, 11443, -18831, 11441, -17111, 10734, -15480, 10930, -12263, 10598, -9514, 9375, -3984, 8675, 2374, 7543, 6301, 8142, 7291, 9883, 7296, 12690, 7360, 12780, 7969, 12775, 9626, 10817, 13397, 9200, 15715, 9177, 19186, 7904, 22679, 7236, 26074, 7313, 29305, 7333, 31983, 6316, 32940, 4641, 32826, 1733, 32559, 1275, 31339, 485, 29542, -295, 28062, -1158, 27375, -1183, 24592, -702, 21405, 1028, 14128, 1545, 13862, 1426, 11587, -664, 10116, -1346, 8242, -1483, 6014, -551, 1635, -387)
 script = ExtResource("1_viny5")
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
 color = Color(0.45, 0.2925, 0.18, 1)
-polygon = PackedVector2Array(474, -39, 502, -8874, -2542, -8871, -3188, 6521, 34194, 9587, 57684, 12101, 72009, 11871, 70798, -17222, 67682, -17366, 67969, -6818, 54544, -6962, 54688, 3826, 46106, 4257, 35415, 3983, 30259, 2889, 30253, 2054, 29229, 1964, 26963, -388, 26778, -503, 22326, -1353, 17068, -4357, 12706, -4756, 10682, -4058, 7093, -1507, 2969, -72)
+polygon = PackedVector2Array(1438, -375, 1299, -502, 1057, -1206, 405, -1964, 128, -4487, -75, -35624, -18, -35752, 118, -35791, 2108, -36066, 3365, -35712, 3591, -35610, 3696, -35462, 3860, -3664, 8281, -4629, 12103, -4315, 14273, -2153, 16935, -1636, 20096, -1814, 23029, -3425, 28521, -4086, 32691, -2518, 34852, -1933, 36064, 76, 36283, 5287, 36095, 7587, 35866, 7910, 34615, 8233, 34332, 8596, 33915, 9632, 32973, 10763, 30538, 11664, 28439, 13225, 27443, 13427, 22627, 13763, 16384, 13575, 14190, 12830, 12732, 12907, 8856, 14356, 2082, 15089, 674, 14719, 532, 14456, 539, 12882, 714, 12701, 1773, 12296, 4693, 12113, 4810, 12002, 4817, 11185, 4723, 11074, -2939, 11502, -4659, 12333, -6265, 12384, -7702, 11954, -9637, 12005, -9744, 12096, -10248, 16027, -12110, 16989, -14939, 17073, -17516, 16114, -17623, 13813, -18265, 13417, -24804, 13567, -24939, 13351, -24935, 7202, -24785, 6807, -23677, 6675, -22011, 6729, -21219, 7041, -21112, 6963, -21130, 5338, -21195, 5255, -25315, 3496, -27391, 1800, -27436, 1727, -27446, -204, -27374, -300, -26050, -1202, -18338, -1141, -18218, -1164, -18221, -1776, -18233, -1945, -22606, -2574, -28062, -3695, -31137, -3617, -31173, -3553, -31409, -3139, -31993, -2510, -33212, -2098, -34165, -2136, -35021, -2587, -35501, -3012, -35623, -3408, -35667, -3438, -36558, -3477, -36612, -3406, -36781, -2777, -37279, -2307, -38086, -2129, -38800, -2129, -39351, -2472, -39634, -2955, -39734, -3316, -39760, -3343, -40657, -3353, -40677, -3325, -40855, -2760, -41383, -2413, -42096, -2305, -42930, -2197, -43760, -2353, -44237, -2828, -44335, -3203, -44357, -3222, -44894, -3234, -44925, -3210, -45520, -2536, -46132, -2320, -49728, -1642, -52205, 536, -53753, 877, -53778, 905, -53904, 1494, -53887, 1520, -52682, 1825, -51659, 2430, -51377, 7815, -50489, 10586, -49506, 16416, -49305, 17836, -48060, 19384, -46557, 21909, -45340, 23490, -42723, 24803, -41439, 24946, -41010, 24785, -41015, 24516, -41768, 24347.3, -42132, 24213, -42107, 22739, -41200, 22191, -39251, 21447, -36878, 21477, -34775, 22168, -34136, 22660, -34114, 24357, -34493, 24399, -35081, 24541, -35652, 24708, -35641, 24980, -34572, 25206, -32216, 26388, -26947, 27995, -23934, 27873, -21623, 27315, -19489, 27239, -17025, 27289, -3752, 20178, -1718, 19937, 5459, 21389, 13764, 20421, 24972, 20018, 43034, 15503, 45615, 4133, 42793, -5059, 35965, -12458, 11288, -11874, 11002, -39583, -5535, -41748, -7472, -1765, -14132, -6538, -23696, -9180, -25310, -8440, -46614, -9413, -71407, -9452, -76478, 31262, -47969, 38218, -26759, 39928, -9989, 36538, -3282, 32907, -4339, 20493, -17006, 27280, -13673, 27518, -11362, 28483, -10832, 32222, -11134, 32758, -12555, 33639, -14269, 33680, -19215, 33590, -22205, 33120, -25879, 30643, -29680, 29789, -32243, 28123, -36174, 26565, -37394, 26005, -37428, 24768, -37487, 24564, -37607.2, 24378, -38517, 24352, -38584, 24488, -38640, 24708, -38716, 25895, -39508, 26284, -40662, 26661, -44208, 26469, -46183, 25658, -47956, 24067, -51257, 21782, -54758, 20868, -56927, 19612, -63668, 18986, -66788, 17083, -67320, 15292, -67091, 11458, -65490, 9830, -64400, 4610, -62436, 4596, -61911, 1811, -60942, 641, -57160, -361, -53786, -2924, -48575, -3692, -44220, -5660, -39304, -5999, -34405, -6287, -22091, -5430, -17453, -4270, -16269, -2480, -16269, 117, -16834, 628, -18731, 890, -19131, 909, -19283, 1185, -18928.8, 1621.97, -18921, 3338, -18615, 5730, -18661, 8543, -18984, 8879, -22441, 9028, -22493, 9100, -22512, 11370, -22459.9, 11443, -18831, 11441, -17111, 10734, -15480, 10930, -12263, 10598, -9514, 9375, -3984, 8675, 2374, 7543, 6301, 8142, 7291, 9883, 7296, 12690, 7360, 12780, 7969, 12775, 9626, 10817, 13397, 9200, 15715, 9177, 19186, 7904, 22679, 7236, 26074, 7313, 29305, 7333, 31983, 6316, 32940, 4641, 32826, 1733, 32559, 1275, 31339, 485, 29542, -295, 28062, -1158, 27375, -1183, 24592, -702, 21405, 1028, 14128, 1545, 13862, 1426, 11587, -664, 10116, -1346, 8242, -1483, 6014, -551, 1635, -387)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(41340, -622)
-polygon = PackedVector2Array(-9803, -296, -8793, -1015, -8551, -1086, -3895.48, -990.502, -3712, -3407, -3467, -3399, -3364, -1008, -556, -922, 1554, 229, 115, 1331, -8036, 1283, -9808, 1055)
+position = Vector2(27737, 10244)
+polygon = PackedVector2Array(-10438, 251, -9764, -262, -8037, -645, -3895.48, -990.502, -1606, -834, -448, 14, 622.46, 268.958, 727, 390, 781, 1193, 559, 1367, -408, 1480, -8036, 1283, -10219, 1129, -10408, 650)
 script = ExtResource("1_viny5")
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D2"]
 color = Color(0.45, 0.2925, 0.18, 1)
-polygon = PackedVector2Array(-9803, -296, -8793, -1015, -8551, -1086, -3895.48, -990.502, -3712, -3407, -3467, -3399, -3364, -1008, -556, -922, 1554, 229, 115, 1331, -8036, 1283, -9808, 1055)
+polygon = PackedVector2Array(-10438, 251, -9764, -262, -8037, -645, -3895.48, -990.502, -1606, -834, -448, 14, 622.46, 268.958, 727, 390, 781, 1193, 559, 1367, -408, 1480, -8036, 1283, -10219, 1129, -10408, 650)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(50645, -6715)
-polygon = PackedVector2Array(436, 2162, 2186, 340, 2312, 9096, 510, 9107)
+position = Vector2(-20992, 1300)
+polygon = PackedVector2Array(775, -456, 793, -374, 444, -75, -280, 221, -2443, 292, -3291, 121, -3929, -21, -4189, -353, -4172, -440, -4130, -472)
 script = ExtResource("1_viny5")
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D3"]
 color = Color(0.45, 0.2925, 0.18, 1)
-polygon = PackedVector2Array(436, 2162, 2186, 340, 2312, 9096, 510, 9107)
+polygon = PackedVector2Array(775, -456, 793, -374, 444, -75, -280, 221, -2443, 292, -3291, 121, -3929, -21, -4189, -353, -4172, -440, -4130, -472)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(9985, -28232)
-polygon = PackedVector2Array(-421, -4517, 19514, 21515, -2253, 13182)
+position = Vector2(-55784, 3627)
+polygon = PackedVector2Array(702, -460, 732, -428, 698, -186, 347, 153, -444, 323, -2390, 413, -3318, 277, -3940, 198, -4223, -164, -4130, -472, -1440, -707)
 script = ExtResource("1_viny5")
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D4"]
-polygon = PackedVector2Array(-421, -4517, 19514, 21515, -2253, 13182)
+color = Color(0.45, 0.2925, 0.18, 1)
+polygon = PackedVector2Array(702, -460, 732, -428, 698, -186, 347, 153, -444, 323, -2390, 413, -3318, 277, -3940, 198, -4223, -164, -4130, -472, -1440, -707)
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-52259, 6028)
+polygon = PackedVector2Array(-30, -545, -13, 155, -280, 221, -2038, 228, -2884, 85, -3951, 110, -4245, -195, -4130, -472, -2967, -587, -268, -832, -122, -772)
+script = ExtResource("1_viny5")
 
-[node name="Enemy" parent="Enemies" instance=ExtResource("3_vgkd4")]
-position = Vector2(5742, -1675)
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D5"]
+color = Color(0.45, 0.2925, 0.18, 1)
+polygon = PackedVector2Array(-30, -545, -13, 155, -280, 221, -2038, 228, -2884, 85, -3951, 110, -4245, -195, -4130, -472, -2967, -587, -268, -832, -122, -772)
 
-[node name="Enemy2" parent="Enemies" instance=ExtResource("3_vgkd4")]
-position = Vector2(12853, -5770)
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-59792, 6975)
+polygon = PackedVector2Array(775, -456, 806, -113, 218, 159, -280, 221, -1162, 476, -2486, 668, -3504, 363, -3946, 125, -4189, -326, -4171, -388, -3550, -557, -2296, -610, -265, -504, 596, -656)
+script = ExtResource("1_viny5")
 
-[node name="Enemy3" parent="Enemies" instance=ExtResource("3_vgkd4")]
-position = Vector2(22624, -2393)
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D6"]
+color = Color(0.45, 0.2925, 0.18, 1)
+polygon = PackedVector2Array(775, -456, 806, -113, 218, 159, -280, 221, -1162, 476, -2486, 668, -3504, 363, -3946, 125, -4189, -326, -4171, -388, -3550, -557, -2296, -610, -265, -504, 596, -656)
 
-[node name="Enemy4" parent="Enemies" instance=ExtResource("3_vgkd4")]
-position = Vector2(33040, 2851)
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-53256, 8727)
+polygon = PackedVector2Array(759, -487, 804, -291, 306, 73, -249, 424, -2534, 458, -3394, 265, -3929, -21, -4149, -306, -3998, -494, -2888, -547, -1121, -751, -638, -562)
+script = ExtResource("1_viny5")
 
-[node name="Enemy5" parent="Enemies" instance=ExtResource("3_vgkd4")]
-position = Vector2(37853, 2994)
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D7"]
+color = Color(0.45, 0.2925, 0.18, 1)
+polygon = PackedVector2Array(759, -487, 804, -291, 306, 73, -249, 424, -2534, 458, -3394, 265, -3929, -21, -4149, -306, -3998, -494, -2888, -547, -1121, -751, -638, -562)
 
-[node name="Enemy6" parent="Enemies" instance=ExtResource("3_vgkd4")]
-position = Vector2(34836, -3112)
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-60202, 10256)
+polygon = PackedVector2Array(1367, 22, 970, 67, 449, 173, -713, 390, -2406, 462, -3291, 121, -4024, 100, -4189, -353, -4130, -472, -2217, -703, -336, -756, 1332, -416)
+script = ExtResource("1_viny5")
 
-[node name="Enemy7" parent="Enemies" instance=ExtResource("3_vgkd4")]
-position = Vector2(39865, -2824)
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D8"]
+color = Color(0.45, 0.2925, 0.18, 1)
+polygon = PackedVector2Array(1367, 22, 970, 67, 449, 173, -713, 390, -2406, 462, -3291, 121, -4024, 100, -4189, -353, -4130, -472, -2217, -703, -336, -756, 1332, -416)
 
-[node name="Enemy8" parent="Enemies" instance=ExtResource("3_vgkd4")]
-position = Vector2(42379, 2492)
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-52491, 11658)
+polygon = PackedVector2Array(765, -821, 778, -110, 444, -75, -80, 195, -778, 170, -2092, 303, -3185, 55, -3769, 55, -4092, -43, -4142, -119, -4133, -444, -4117, -471, -1861, -596, 593, -992)
+script = ExtResource("1_viny5")
 
-[node name="Enemy9" parent="Enemies" instance=ExtResource("3_vgkd4")]
-position = Vector2(48342, 2707)
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D9"]
+color = Color(0.45, 0.2925, 0.18, 1)
+polygon = PackedVector2Array(765, -821, 778, -110, 444, -75, -80, 195, -778, 170, -2092, 303, -3185, 55, -3769, 55, -4092, -43, -4142, -119, -4133, -444, -4117, -471, -1861, -596, 593, -992)
 
-[node name="Enemy10" parent="Enemies" instance=ExtResource("3_vgkd4")]
-position = Vector2(57106, -8140)
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-57351, 13220)
+polygon = PackedVector2Array(729, -457, 757, -411, 739, -279, 320, -105, -280, 221, -1696, 140, -2443, 292, -3452, 110, -3929, -21, -4188, -241, -4130, -472, -2874, -585, -108, -398)
+script = ExtResource("1_viny5")
 
-[node name="Enemy11" parent="Enemies" instance=ExtResource("3_vgkd4")]
-position = Vector2(61201, -8428)
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D10"]
+color = Color(0.45, 0.2925, 0.18, 1)
+polygon = PackedVector2Array(729, -457, 757, -411, 739, -279, 320, -105, -280, 221, -1696, 140, -2443, 292, -3452, 110, -3929, -21, -4188, -241, -4130, -472, -2874, -585, -108, -398)
 
-[node name="Enemy12" parent="Enemies" instance=ExtResource("3_vgkd4")]
-position = Vector2(65080, -8428)
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-62381, 14973)
+polygon = PackedVector2Array(775, -456, 711, -184, 444, -75, -280, 221, -2443, 292, -3291, 121, -4092, 46, -4210, -72, -4189, -353, -4130, -472, -3092, -402, -1272, -642)
+script = ExtResource("1_viny5")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D11"]
+color = Color(0.45, 0.2925, 0.18, 1)
+polygon = PackedVector2Array(775, -456, 711, -184, 444, -75, -280, 221, -2443, 292, -3291, 121, -4092, 46, -4210, -72, -4189, -353, -4130, -472, -3092, -402, -1272, -642)
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-56903, 16937)
+polygon = PackedVector2Array(692, -451, 717, -63, 101, 76, -368, 343, -2553, 343, -3385, 95, -4039, -19, -4185, -349, -4130, -472, -3850, -780, -1867, -666, -1676, -539, -307, -424)
+script = ExtResource("1_viny5")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D12"]
+color = Color(0.45, 0.2925, 0.18, 1)
+polygon = PackedVector2Array(692, -451, 717, -63, 101, 76, -368, 343, -2553, 343, -3385, 95, -4039, -19, -4185, -349, -4130, -472, -3850, -780, -1867, -666, -1676, -539, -307, -424)
+
+[node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-50933, 18587)
+polygon = PackedVector2Array(162, -612, 439, -316, 312, 8, -552, 65, -2470, 204, -3162, 1, -3771, -94, -4184, -310, -4130, -472, -1859, -459)
+script = ExtResource("1_viny5")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D13"]
+color = Color(0.45, 0.2925, 0.18, 1)
+polygon = PackedVector2Array(162, -612, 439, -316, 312, 8, -552, 65, -2470, 204, -3162, 1, -3771, -94, -4184, -310, -4130, -472, -1859, -459)
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(66144, -8863)
+position = Vector2(-16132, 30633)
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_eebqn")
+
+[node name="EnemySpawnPoints" type="Node2D" parent="."]
+script = ExtResource("3_7ytgr")
+
+[node name="EnemySpawn1" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(16036, 443)
+
+[node name="EnemySpawn2" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(24052, -1075)
+
+[node name="EnemySpawn3" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(35081, 7120)
+
+[node name="EnemySpawn4" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(26020, 12859)
+
+[node name="EnemySpawn5" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(22275, 8449)
+
+[node name="EnemySpawn6" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(17019, 12738)
+
+[node name="EnemySpawn7" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(11160, 12557)
+
+[node name="EnemySpawn8" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(5481, 14067)
+
+[node name="EnemySpawn9" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(347, 10684)
+
+[node name="EnemySpawn10" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-11614, 15094)
+
+[node name="EnemySpawn11" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-16326, 14973)
+
+[node name="EnemySpawn12" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-20554, 8208)
+
+[node name="EnemySpawn13" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-24904, 2650)
+
+[node name="EnemySpawn14" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-22608, -8)
+
+[node name="EnemySpawn15" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-25870, -4237)
+
+[node name="EnemySpawn16" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-36140, -4599)
+
+[node name="EnemySpawn17" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-40368, -4176)
+
+[node name="EnemySpawn18" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-44597, -3934)
+
+[node name="EnemySpawn19" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-58007, 1744)
+
+[node name="EnemySpawn20" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-53779, 4160)
+
+[node name="EnemySpawn21" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-61390, 5248)
+
+[node name="EnemySpawn22" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-55108, 7120)
+
+[node name="EnemySpawn23" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-62115, 8751)
+
+[node name="EnemySpawn24" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-53537, 10141)
+
+[node name="EnemySpawn25" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-58853, 11651)
+
+[node name="EnemySpawn26" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-64592, 13463)
+
+[node name="EnemySpawn27" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-58672, 15155)
+
+[node name="EnemySpawn28" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-52692, 17087)
+
+[node name="EnemySpawn29" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-41214, 23732)
+
+[node name="EnemySpawn30" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-38134, 23672)
+
+[node name="EnemySpawn31" type="Node2D" parent="EnemySpawnPoints"]
+position = Vector2(-35113, 23612)
+
+[node name="PlayerSpawnPoints" type="Node2D" parent="."]
+position = Vector2(9133, -2492)
+script = ExtResource("4_42cwd")
+
+[node name="PlayerSpawn1" type="Node2D" parent="PlayerSpawnPoints"]
+position = Vector2(-7307, -31716)
+
+[node name="PlayerSpawn2" type="Node2D" parent="PlayerSpawnPoints"]
+position = Vector2(-6718, 1220)
+
+[node name="PlayerSpawn3" type="Node2D" parent="PlayerSpawnPoints"]
+position = Vector2(25772, 9492)
+
+[node name="PlayerSpawn4" type="Node2D" parent="PlayerSpawnPoints"]
+position = Vector2(-5010, 12369)
+
+[node name="PlayerSpawn5" type="Node2D" parent="PlayerSpawnPoints"]
+position = Vector2(-32818, 15054)
+
+[node name="PlayerSpawn6" type="Node2D" parent="PlayerSpawnPoints"]
+position = Vector2(-28311, -768)
+
+[node name="PlayerSpawn7" type="Node2D" parent="PlayerSpawnPoints"]
+position = Vector2(-62161, 2204)
+
+[node name="PlayerSpawn8" type="Node2D" parent="PlayerSpawnPoints"]
+position = Vector2(-54682, 27328)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bbbnke2vkr5g1" path="res://gbot/gBot_head.png" id="12_6i6ye"]
 [ext_resource type="Texture2D" uid="uid://imp5axpismvj" path="res://gbot/gBot_jaw.png" id="13_67wnh"]
 [ext_resource type="Script" path="res://gun_holder.gd" id="14_w1ox4"]
-[ext_resource type="PackedScene" uid="uid://cttymv42i7bj6" path="res://gun.tscn" id="15_5m1lf"]
+[ext_resource type="PackedScene" uid="uid://cttymv42i7bj6" path="res://assault_rifle.tscn" id="15_5m1lf"]
 [ext_resource type="Texture2D" uid="uid://csu732qhdjmjw" path="res://gbot/gBot_arm_r.png" id="16_k3440"]
 [ext_resource type="Texture2D" uid="uid://cwk3njrh1hs3t" path="res://gbot/gBot_forearm_r.png" id="17_xq1a6"]
 
