@@ -2031,12 +2031,14 @@ offset = Vector2(-17, 47)
 [node name="ShinLeftSprite" type="Sprite2D" parent="."]
 position = Vector2(76.8061, 99.9263)
 rotation = -0.007285
+scale = Vector2(1, 1)
 texture = ExtResource("4_2u5e4")
 offset = Vector2(20, 46)
 
 [node name="FootLeftSprite" type="Sprite2D" parent="."]
 position = Vector2(66.5495, 202.004)
 rotation = -0.007285
+scale = Vector2(1, 1)
 texture = ExtResource("5_07nx7")
 offset = Vector2(50, 10)
 

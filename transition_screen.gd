@@ -12,7 +12,8 @@ var scene_dictionary = {
 	
 	"main_scene": preload("res://main.tscn"),
 	"test_scene": preload("res://stage.tscn"),
-	"menu_scene": preload("res://menu.tscn")
+	"menu_scene": preload("res://menu.tscn"),
+	"tutorial_scene": preload("res://tutorial_scene.tscn")
 }
 
 var new_scene: PackedScene

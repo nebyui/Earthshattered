@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ds638sh7bu6lo"]
+[gd_scene load_steps=9 format=3 uid="uid://ds638sh7bu6lo"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_facu5"]
+[ext_resource type="FontFile" uid="uid://rh2en53kqen" path="res://alagard.ttf" id="2_nhda8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_op041"]
 
@@ -34,6 +35,15 @@ shadow_color = Color(0.0885599, 0.0885599, 0.0885599, 0.6)
 shadow_size = 5
 shadow_offset = Vector2(0, 4)
 
+[sub_resource type="LabelSettings" id="LabelSettings_mochi"]
+font = ExtResource("2_nhda8")
+font_size = 246
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qpg61"]
+font = ExtResource("2_nhda8")
+font_size = 246
+
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -45,11 +55,11 @@ script = ExtResource("1_facu5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -54.0
-offset_top = -45.0
-offset_right = 2649.0
-offset_bottom = 1576.0
-color = Color(0.16, 0.10528, 0.0736, 1)
+offset_left = -419.0
+offset_top = -274.0
+offset_right = 3161.0
+offset_bottom = 2241.0
+color = Color(0.21, 0.13818, 0.0966, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -90,6 +100,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_wvbjt")
 text = "Start"
 
 [node name="Options" type="Button" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
@@ -135,6 +146,25 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_recv1")
 theme_override_styles/normal = SubResource("StyleBoxFlat_wvbjt")
 text = "Quit"
 
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -863.0
+offset_top = 129.0
+offset_right = 890.0
+offset_bottom = 361.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 8
+theme_override_font_sizes/font_size = 118
+text = "EarthShattered"
+label_settings = SubResource("LabelSettings_mochi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -150,6 +180,7 @@ theme_override_constants/shadow_offset_x = 8
 theme_override_constants/shadow_offset_y = 8
 theme_override_font_sizes/font_size = 118
 text = "EarthShattered"
+label_settings = SubResource("LabelSettings_qpg61")
 horizontal_alignment = 1
 vertical_alignment = 1
 

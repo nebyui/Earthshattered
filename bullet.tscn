@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://bullet.gd" id="1_jwf7v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hgtek"]
-radius = 20.0
+radius = 19.9999
 height = 78.0
 
 [node name="Bullet" type="CharacterBody2D"]

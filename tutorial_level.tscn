@@ -1,0 +1,170 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbvvd01p2fiyt"]
+
+[ext_resource type="Script" path="res://tutorial_level.gd" id="1_u4v77"]
+[ext_resource type="Script" path="res://collision_polygon.gd" id="2_j7w4f"]
+[ext_resource type="Script" path="res://player_spawn_points.gd" id="4_y607d"]
+[ext_resource type="FontFile" uid="uid://rh2en53kqen" path="res://alagard.ttf" id="5_1g68g"]
+[ext_resource type="PackedScene" uid="uid://dd3hmkq7f15q" path="res://dummy.tscn" id="6_hmhlc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eebqn"]
+size = Vector2(6731, 5334)
+
+[sub_resource type="LabelSettings" id="LabelSettings_spn5o"]
+font = ExtResource("5_1g68g")
+font_size = 400
+
+[node name="TutorialLevel" type="Node2D"]
+script = ExtResource("1_u4v77")
+
+[node name="Background" type="Polygon2D" parent="."]
+z_index = -5
+position = Vector2(5287, 1819)
+color = Color(0.16, 0.10528, 0.0736, 1)
+polygon = PackedVector2Array(-70882, -37109, -10594, -47861, 20126, -48501, 33054, -40821, 57246, -19189, 63134, 30219, 22174, 39307, -54370, 43275, -87394, 30347)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+rotation = -0.000428927
+polygon = PackedVector2Array(-23738, -502, -25786, -695, -27162, -3248, -26458, -3751, -25306, -3751, 16662, -3662, 17561, -3482, 17944, -3099, 18092, -12599, 18324, -13128, 18586, -13179, 32149, -13021, 33630, -13086, 34086, -12666, 33901, 36087, 40446, 16146, 43041, -13768, 25137, -19059, 17450, -17406, 12421, -12306, -38045, -10972, -35028, -297, -29640, 7901, 22484, 8459, 27279, 35630, 31618, 36315, 31751, -9805, 31661, -9909, 31435, -10008, 20708, -9923, 20522, -9671, 20437, -1504, 20096, -1266, 19811, -872, -58, -936, -346, -583, 230, -50, 1126, 794, 1357, 1339, 1542, 2246, -108, 2614, -3300.7, 1750, -4794.1, 427, -6297.88, -65, -6247.61, -908.68, -6357.58, -976.727, -8730, -1012, -9018, -1024, -9274, -931.318, -9562, -712, -8922, 100, -8666, 783, -9210, 1211, -9946, 1189, -10778, 1061, -11098, 933, -11610, 175, -11994, -235, -12730, -368)
+script = ExtResource("2_j7w4f")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+color = Color(0.45, 0.2925, 0.18, 1)
+polygon = PackedVector2Array(-23738, -502, -25786, -695, -27162, -3248, -26458, -3751, -25306, -3751, 16662, -3662, 17561, -3482, 17944, -3099, 18092, -12599, 18324, -13128, 18586, -13179, 32149, -13021, 33630, -13086, 34086, -12666, 33901, 36087, 40446, 16146, 43041, -13768, 25137, -19059, 17450, -17406, 12421, -12306, -38045, -10972, -35028, -297, -29640, 7901, 22484, 8459, 27279, 35630, 31618, 36315, 31751, -9805, 31661, -9909, 31435, -10008, 20708, -9923, 20522, -9671, 20437, -1504, 20096, -1266, 19811, -872, -58, -936, -346, -583, 230, -50, 1126, 794, 1357, 1339, 1542, 2246, -108, 2614, -3300.7, 1750, -4794.1, 427, -6297.88, -65, -6247.61, -908.68, -6357.58, -976.727, -8730, -1012, -9018, -1024, -9274, -931.318, -9562, -712, -8922, 100, -8666, 783, -9210, 1211, -9946, 1189, -10778, 1061, -11098, 933, -11610, 175, -11994, -235, -12730, -368)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(25971, -10877)
+polygon = PackedVector2Array(-682, -748, -271, -747, -254, -731, -267, -694, -297, -684, -671, -687, -681, -701, -692, -724)
+script = ExtResource("2_j7w4f")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D5"]
+color = Color(0.45, 0.2925, 0.18, 1)
+polygon = PackedVector2Array(-682, -748, -271, -747, -254, -731, -267, -694, -297, -684, -671, -687, -681, -701, -692, -724)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(28371, -10460)
+polygon = PackedVector2Array(-682, -748, -271, -747, -254, -731, -267, -694, -297, -684, -671, -687, -681, -701, -692, -724)
+script = ExtResource("2_j7w4f")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D6"]
+color = Color(0.45, 0.2925, 0.18, 1)
+polygon = PackedVector2Array(-682, -748, -271, -747, -254, -731, -267, -694, -297, -684, -671, -687, -681, -701, -692, -724)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(31291, -10703)
+polygon = PackedVector2Array(-682, -748, -271, -747, -254, -731, -267, -694, -297, -684, -671, -687, -681, -701, -692, -724)
+script = ExtResource("2_j7w4f")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D7"]
+color = Color(0.45, 0.2925, 0.18, 1)
+polygon = PackedVector2Array(-682, -748, -271, -747, -254, -731, -267, -694, -297, -684, -671, -687, -681, -701, -692, -724)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(32934, -149)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_eebqn")
+
+[node name="PlayerSpawnPoints" type="Node2D" parent="."]
+position = Vector2(9133, -2492)
+script = ExtResource("4_y607d")
+
+[node name="PlayerSpawn1" type="Node2D" parent="PlayerSpawnPoints"]
+position = Vector2(-32721, 1334)
+
+[node name="Text" type="Node2D" parent="."]
+
+[node name="AandD" type="Label" parent="Text"]
+offset_left = -25579.0
+offset_top = -2654.0
+offset_right = -22204.0
+offset_bottom = -2279.0
+text = "<---- [A]   [D] ---->"
+label_settings = SubResource("LabelSettings_spn5o")
+
+[node name="Jump" type="Label" parent="Text"]
+offset_left = -16473.0
+offset_top = -2587.0
+offset_right = -13098.0
+offset_bottom = -2212.0
+text = "[Space] to Jump"
+label_settings = SubResource("LabelSettings_spn5o")
+
+[node name="WallJump" type="Label" parent="Text"]
+offset_left = 14297.0
+offset_top = -3401.0
+offset_right = 17672.0
+offset_bottom = -2270.0
+text = "Press [SPACE] 
+while on wall 
+to Wall Jump"
+label_settings = SubResource("LabelSettings_spn5o")
+horizontal_alignment = 1
+
+[node name="Shoot" type="Label" parent="Text"]
+offset_left = 19065.0
+offset_top = -12384.0
+offset_right = 23540.0
+offset_bottom = -11253.0
+text = "Press Left Mouse Button
+to Shootw"
+label_settings = SubResource("LabelSettings_spn5o")
+horizontal_alignment = 1
+
+[node name="Down" type="Label" parent="Text"]
+offset_left = 31332.0
+offset_top = -12029.0
+offset_right = 34707.0
+offset_bottom = -10142.0
+text = "|
+|
+|
+|
+V"
+label_settings = SubResource("LabelSettings_spn5o")
+horizontal_alignment = 1
+
+[node name="DoubleJump" type="Label" parent="Text"]
+offset_left = -7545.0
+offset_top = -3099.0
+offset_right = -3870.0
+offset_bottom = -2346.0
+text = "Press [SPACE] in air
+for Double Jump"
+label_settings = SubResource("LabelSettings_spn5o")
+horizontal_alignment = 1
+
+[node name="Sprint" type="Label" parent="Text"]
+offset_left = 2151.0
+offset_top = -2587.0
+offset_right = 6126.0
+offset_bottom = -2212.0
+text = "[Left SHIFT] to sprint"
+label_settings = SubResource("LabelSettings_spn5o")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Dummy" parent="Node2D" instance=ExtResource("6_hmhlc")]
+position = Vector2(23971, -10238)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Dummy2" parent="Node2D" instance=ExtResource("6_hmhlc")]
+position = Vector2(25522, -11883)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Dummy3" parent="Node2D" instance=ExtResource("6_hmhlc")]
+position = Vector2(27932, -11458)
+
+[node name="Dummy4" parent="Node2D" instance=ExtResource("6_hmhlc")]
+position = Vector2(30841, -11703)
+
+[node name="Dummy5" parent="Node2D" instance=ExtResource("6_hmhlc")]
+position = Vector2(29160, -10268)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

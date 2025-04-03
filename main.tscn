@@ -1,21 +1,42 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl7jir2jyg2wm"]
+[gd_scene load_steps=9 format=3 uid="uid://bl7jir2jyg2wm"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_efqlg"]
 [ext_resource type="PackedScene" uid="uid://bc55nvncm2d7m" path="res://level.tscn" id="2_vsa4w"]
 [ext_resource type="AudioStream" uid="uid://c5xh37vl7mb7o" path="res://Assets/2 - Galactic Odyssey (Loop).ogg" id="4_8o7pm"]
 [ext_resource type="PackedScene" uid="uid://cfjwca57asb0a" path="res://player.tscn" id="4_d0r1p"]
+[ext_resource type="Script" path="res://pause.gd" id="5_qiahx"]
+[ext_resource type="PackedScene" uid="uid://r686trrdryex" path="res://pause.tscn" id="7_42u7k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wptp0"]
 font_size = 96
 
+[sub_resource type="GDScript" id="GDScript_3vkc2"]
+script/source = "extends Node2D
+
+
+func _ready() -> void:
+	set_process_input(true)
+
+
+func _process(delta: float) -> void:
+
+	print(\"Thing\")
+
+	if Input.is_action_just_pressed(\"pause\"):
+		if get_tree().paused == false:
+			get_tree().paused = true
+		elif get_tree().paused == true:
+			get_tree().paused = false
+"
+
 [node name="Main" type="Node2D"]
-position = Vector2(-2880, -288)
 script = ExtResource("1_efqlg")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 9
 
 [node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -31,6 +52,7 @@ text = "TEST"
 label_settings = SubResource("LabelSettings_wptp0")
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -45,10 +67,6 @@ grow_vertical = 2
 text = "TEST"
 label_settings = SubResource("LabelSettings_wptp0")
 
-[node name="LevelContainer" type="Node2D" parent="."]
-
-[node name="Level" parent="LevelContainer" instance=ExtResource("2_vsa4w")]
-
 [node name="Player" parent="." instance=ExtResource("4_d0r1p")]
 position = Vector2(1673, -32426)
 
@@ -59,3 +77,15 @@ zoom = Vector2(0.2, 0.2)
 stream = ExtResource("4_8o7pm")
 volume_db = -10.0
 autoplay = true
+
+[node name="LevelContainer" type="Node2D" parent="."]
+script = SubResource("GDScript_3vkc2")
+
+[node name="Level" parent="LevelContainer" instance=ExtResource("2_vsa4w")]
+
+[node name="Node2D" parent="." instance=ExtResource("7_42u7k")]
+script = null
+
+[node name="pause" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("5_qiahx")

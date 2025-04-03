@@ -7,10 +7,11 @@ func _ready() -> void:
 
 func _on_start_pressed() -> void:
 	
-	TransitionScreen.transition_to_scene("main_scene")
+	TransitionScreen.transition_to_scene("tutorial_scene")
+	
 
 func _on_options_pressed() -> void:
-	TransitionScreen.transition_to_scene("test_scene")
+	TransitionScreen.transition_to_scene("main_scene")
 
 
 func _on_quit_pressed() -> void:

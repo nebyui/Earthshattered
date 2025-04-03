@@ -1,27 +1,26 @@
-[gd_scene load_steps=37 format=3 uid="uid://cynnehpoapset"]
+[gd_scene load_steps=36 format=3 uid="uid://dd3hmkq7f15q"]
 
-[ext_resource type="Texture2D" uid="uid://ddvlfqp0odhk0" path="res://gbot/gBot_arm_l.png" id="1_cwfr7"]
-[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_g4b71"]
-[ext_resource type="Texture2D" uid="uid://rnhdhm3ymcxj" path="res://gbot/gBot_forearm_l.png" id="2_hgj1h"]
-[ext_resource type="Texture2D" uid="uid://c4f00jfqv683b" path="res://gbot/gBot_leg_l.png" id="3_qieyr"]
-[ext_resource type="Texture2D" uid="uid://bjv16ch7opfn6" path="res://gbot/gBot_shin_l.png" id="4_2u5e4"]
-[ext_resource type="Texture2D" uid="uid://uv4ubn0hfnmt" path="res://gbot/gBot_foot_l.png" id="5_07nx7"]
-[ext_resource type="Texture2D" uid="uid://dkvfi7yktls6f" path="res://gbot/gBot_hip.png" id="6_qkvnt"]
-[ext_resource type="Texture2D" uid="uid://dq2xacohdhljm" path="res://gbot/gBot_body.png" id="7_i3yya"]
-[ext_resource type="Texture2D" uid="uid://c0bki1c8qswy5" path="res://gbot/gBot_leg_r.png" id="8_ynxae"]
-[ext_resource type="Texture2D" uid="uid://c1rw5c6a2dfww" path="res://gbot/gBot_shin_r.png" id="9_w7f38"]
-[ext_resource type="Texture2D" uid="uid://brrnsd8pd7uh5" path="res://gbot/gBot_foot_r.png" id="10_1ath8"]
-[ext_resource type="Texture2D" uid="uid://bbbnke2vkr5g1" path="res://gbot/gBot_head.png" id="11_bnkdu"]
-[ext_resource type="Texture2D" uid="uid://imp5axpismvj" path="res://gbot/gBot_jaw.png" id="12_agdpo"]
-[ext_resource type="PackedScene" uid="uid://cttymv42i7bj6" path="res://assault_rifle.tscn" id="13_ytiyg"]
-[ext_resource type="Texture2D" uid="uid://csu732qhdjmjw" path="res://gbot/gBot_arm_r.png" id="14_cu32x"]
-[ext_resource type="Script" path="res://gun_holder.gd" id="14_tj17x"]
-[ext_resource type="Texture2D" uid="uid://cwk3njrh1hs3t" path="res://gbot/gBot_forearm_r.png" id="15_jl3sg"]
-[ext_resource type="Script" path="res://Enemy/Behavior Tree/behavior_tree.gd" id="17_7s137"]
-[ext_resource type="Script" path="res://Enemy/Behavior Tree/attack.gd" id="18_4qd70"]
-[ext_resource type="Script" path="res://Enemy/Behavior Tree/approach.gd" id="19_1io3y"]
-[ext_resource type="Script" path="res://Enemy/Behavior Tree/back_up.gd" id="20_u6geg"]
-[ext_resource type="Script" path="res://Enemy/Behavior Tree/idle.gd" id="21_konof"]
+[ext_resource type="Script" path="res://dummy.gd" id="1_180ko"]
+[ext_resource type="Texture2D" uid="uid://ddvlfqp0odhk0" path="res://gbot/gBot_arm_l.png" id="2_ktnri"]
+[ext_resource type="Texture2D" uid="uid://rnhdhm3ymcxj" path="res://gbot/gBot_forearm_l.png" id="3_ygocm"]
+[ext_resource type="Texture2D" uid="uid://c4f00jfqv683b" path="res://gbot/gBot_leg_l.png" id="4_ecsf1"]
+[ext_resource type="Texture2D" uid="uid://bjv16ch7opfn6" path="res://gbot/gBot_shin_l.png" id="5_uvw3p"]
+[ext_resource type="Texture2D" uid="uid://uv4ubn0hfnmt" path="res://gbot/gBot_foot_l.png" id="6_gbyod"]
+[ext_resource type="Texture2D" uid="uid://dkvfi7yktls6f" path="res://gbot/gBot_hip.png" id="7_ifmpg"]
+[ext_resource type="Texture2D" uid="uid://dq2xacohdhljm" path="res://gbot/gBot_body.png" id="8_qsrkp"]
+[ext_resource type="Texture2D" uid="uid://c0bki1c8qswy5" path="res://gbot/gBot_leg_r.png" id="9_jnyw5"]
+[ext_resource type="Texture2D" uid="uid://c1rw5c6a2dfww" path="res://gbot/gBot_shin_r.png" id="10_tec3x"]
+[ext_resource type="Texture2D" uid="uid://brrnsd8pd7uh5" path="res://gbot/gBot_foot_r.png" id="11_7kt6k"]
+[ext_resource type="Texture2D" uid="uid://bbbnke2vkr5g1" path="res://gbot/gBot_head.png" id="12_mmdk7"]
+[ext_resource type="Texture2D" uid="uid://imp5axpismvj" path="res://gbot/gBot_jaw.png" id="13_2wig3"]
+[ext_resource type="Script" path="res://gun_holder.gd" id="14_45a4x"]
+[ext_resource type="Texture2D" uid="uid://csu732qhdjmjw" path="res://gbot/gBot_arm_r.png" id="15_aios2"]
+[ext_resource type="Texture2D" uid="uid://cwk3njrh1hs3t" path="res://gbot/gBot_forearm_r.png" id="16_mbs3s"]
+[ext_resource type="Script" path="res://Enemy/Behavior Tree/behavior_tree.gd" id="17_3pssv"]
+[ext_resource type="Script" path="res://Enemy/Behavior Tree/approach.gd" id="18_kxxbm"]
+[ext_resource type="Script" path="res://Enemy/Behavior Tree/attack.gd" id="19_rsa1n"]
+[ext_resource type="Script" path="res://Enemy/Behavior Tree/back_up.gd" id="20_dkpnb"]
+[ext_resource type="Script" path="res://Enemy/Behavior Tree/idle.gd" id="21_702q5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c2yhw"]
 radius = 133.0
@@ -2000,13 +1999,14 @@ _data = {
 "strafe": SubResource("Animation_jlk08")
 }
 
-[node name="Enemy" type="CharacterBody2D" groups=["Enemies"]]
-modulate = Color(1, 0.5, 0.583333, 1)
+[node name="Dummy" type="CharacterBody2D" groups=["Enemies"]]
+modulate = Color(0.6375, 0.9, 0.45, 1)
+scale = Vector2(-1, 1)
 collision_layer = 4
 floor_constant_speed = true
 floor_max_angle = 1.13446
 safe_margin = 1.0
-script = ExtResource("1_g4b71")
+script = ExtResource("1_180ko")
 
 [node name="Capsule" type="CollisionShape2D" parent="."]
 position = Vector2(20, -51)
@@ -2014,67 +2014,67 @@ shape = SubResource("CapsuleShape2D_c2yhw")
 
 [node name="ArmLeftSprite" type="Sprite2D" parent="."]
 position = Vector2(82, -135)
-texture = ExtResource("1_cwfr7")
+texture = ExtResource("2_ktnri")
 offset = Vector2(14.6505, 17.884)
 
 [node name="ForearmLeftSprite" type="Sprite2D" parent="."]
 position = Vector2(84, -52)
-texture = ExtResource("2_hgj1h")
+texture = ExtResource("3_ygocm")
 offset = Vector2(19.6505, 67.884)
 
 [node name="LegLeftSprite" type="Sprite2D" parent="."]
 position = Vector2(68, 8)
 rotation = -0.403557
-texture = ExtResource("3_qieyr")
+texture = ExtResource("4_ecsf1")
 offset = Vector2(-17, 47)
 
 [node name="ShinLeftSprite" type="Sprite2D" parent="."]
 position = Vector2(76.8061, 99.9263)
 rotation = -0.007285
-texture = ExtResource("4_2u5e4")
+texture = ExtResource("5_uvw3p")
 offset = Vector2(20, 46)
 
 [node name="FootLeftSprite" type="Sprite2D" parent="."]
 position = Vector2(66.5495, 202.004)
 rotation = -0.007285
-texture = ExtResource("5_07nx7")
+texture = ExtResource("6_gbyod")
 offset = Vector2(50, 10)
 
 [node name="HipSprite" type="Sprite2D" parent="."]
-texture = ExtResource("6_qkvnt")
+texture = ExtResource("7_ifmpg")
 
 [node name="BodySprite" type="Sprite2D" parent="."]
 position = Vector2(1.65049, -27.116)
-texture = ExtResource("7_i3yya")
+texture = ExtResource("8_qsrkp")
 offset = Vector2(8, -109)
 
 [node name="LegRightSprite" type="Sprite2D" parent="."]
 position = Vector2(-52.0022, 5.0002)
 rotation = -0.0555117
-texture = ExtResource("8_ynxae")
+texture = ExtResource("9_jnyw5")
 offset = Vector2(-29, 51)
 
 [node name="ShinRightSprite" type="Sprite2D" parent="."]
 position = Vector2(-82.7868, 99.8543)
 rotation = -0.0555117
-texture = ExtResource("9_w7f38")
+texture = ExtResource("10_tec3x")
 offset = Vector2(14, 46)
 
 [node name="FootRightSprite" type="Sprite2D" parent="."]
 position = Vector2(-89.7746, 208.409)
 rotation = -0.0555117
-texture = ExtResource("10_1ath8")
+texture = ExtResource("11_7kt6k")
 offset = Vector2(46, 10)
 
 [node name="HeadSprite" type="Sprite2D" parent="."]
 position = Vector2(19, -194)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("11_bnkdu")
+texture = ExtResource("12_mmdk7")
 offset = Vector2(-6, -184)
 
 [node name="JawSprite" type="Sprite2D" parent="HeadSprite"]
 position = Vector2(4, -49)
-texture = ExtResource("12_agdpo")
+texture = ExtResource("13_2wig3")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 
@@ -2180,11 +2180,7 @@ remote_path = NodePath("../../../../../../ForearmRightSprite")
 
 [node name="GunHolder" type="Node2D" parent="Skeleton2D/Base/Body/ArmR/ForearmR"]
 position = Vector2(99.403, 129.045)
-script = ExtResource("14_tj17x")
-
-[node name="Gun" parent="Skeleton2D/Base/Body/ArmR/ForearmR/GunHolder" instance=ExtResource("13_ytiyg")]
-rotation = 1.5708
-scale = Vector2(0.999983, 0.999983)
+script = ExtResource("14_45a4x")
 
 [node name="Head" type="Bone2D" parent="Skeleton2D/Base/Body"]
 position = Vector2(17.3495, -166.884)
@@ -2200,13 +2196,13 @@ remote_path = NodePath("../../../../../HeadSprite")
 [node name="ArmRightSprite" type="Sprite2D" parent="."]
 position = Vector2(-65, -142)
 rotation = 0.126366
-texture = ExtResource("14_cu32x")
+texture = ExtResource("15_aios2")
 offset = Vector2(-3.34952, 24.884)
 
 [node name="ForearmRightSprite" type="Sprite2D" parent="."]
 position = Vector2(-97.5534, -52.3882)
 rotation = 0.126366
-texture = ExtResource("15_jl3sg")
+texture = ExtResource("16_mbs3s")
 offset = Vector2(12.6505, 76.884)
 
 [node name="LeftRay" type="RayCast2D" parent="."]
@@ -2224,19 +2220,19 @@ next/RESET = &"RESET"
 blend_times = [&"RESET", &"RESET", 3600.0, &"RESET", &"run", 3600.0]
 
 [node name="BehaviorTree" type="Node" parent="."]
-script = ExtResource("17_7s137")
+script = ExtResource("17_3pssv")
 
 [node name="Approach" type="Node" parent="BehaviorTree"]
-script = ExtResource("19_1io3y")
+script = ExtResource("18_kxxbm")
 
 [node name="Attack" type="Node" parent="BehaviorTree"]
-script = ExtResource("18_4qd70")
+script = ExtResource("19_rsa1n")
 
 [node name="BackUp" type="Node" parent="BehaviorTree"]
-script = ExtResource("20_u6geg")
+script = ExtResource("20_dkpnb")
 
 [node name="Idle" type="Node" parent="BehaviorTree"]
-script = ExtResource("21_konof")
+script = ExtResource("21_702q5")
 
 [node name="EnemyRayLeft" type="RayCast2D" parent="."]
 target_position = Vector2(-200, 0)

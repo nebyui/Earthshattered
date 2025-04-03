@@ -143,41 +143,37 @@ modifications/6 = SubResource("SkeletonModification2DCCDIK_wrcm7")
 
 [node name="Tutorial" type="Node2D"]
 position = Vector2(823, 591)
-scale = Vector2(-0.995, 1)
 
 [node name="CharacterContainer" type="Node2D" parent="."]
 
 [node name="Body" type="Node2D" parent="CharacterContainer"]
 
 [node name="GBotArmL" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(66.0012, -176.996)
-rotation = 1.52341
-scale = Vector2(1.04403, -0.975397)
-skew = 0.00047195
+position = Vector2(65.998, -177)
+rotation = -0.537365
+scale = Vector2(0.998183, 1.00185)
 texture = ExtResource("1_5m7nx")
 offset = Vector2(4, 32)
 
 [node name="GBotForearmL" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(162.938, -192.002)
-rotation = 1.52341
-scale = Vector2(8.93306, -0.151846)
-skew = 0.00047183
+position = Vector2(108.705, -85.8273)
+rotation = -0.537365
+scale = Vector2(0.993409, 1.00686)
 texture = ExtResource("2_dub50")
 offset = Vector2(22, 64)
 
 [node name="GBotLegL" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(nan, nan)
-rotation = nan
-scale = Vector2(nan, nan)
-skew = nan
+position = Vector2(61, -2)
+rotation = -1.76715
+scale = Vector2(1.06363, 0.961028)
 texture = ExtResource("3_s32vk")
 offset = Vector2(-17, 50)
 
 [node name="GBotShinL" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(nan, nan)
-rotation = nan
-scale = Vector2(nan, nan)
-skew = nan
+position = Vector2(157.504, 10.255)
+rotation = 0.672201
+scale = Vector2(1.21233e-06, 1.44414e+15)
+skew = -0.101048
 texture = ExtResource("4_g45ke")
 offset = Vector2(20, 44)
 
@@ -207,18 +203,17 @@ texture = ExtResource("9_f5eje")
 offset = Vector2(126.5, 8)
 
 [node name="GBotLegR" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(nan, nan)
-rotation = nan
-scale = Vector2(nan, nan)
-skew = nan
+position = Vector2(-78, 0)
+rotation = -1.66169
+scale = Vector2(1.04175, 0.980092)
 texture = ExtResource("10_5c6u1")
 offset = Vector2(-5, 51)
 
 [node name="GBotShinR" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(nan, nan)
-rotation = nan
-scale = Vector2(nan, nan)
-skew = nan
+position = Vector2(13.8099, 3.13763)
+rotation = 0.750687
+scale = Vector2(1.63021e-06, 7.05828e+09)
+skew = -0.0608934
 texture = ExtResource("11_4qwm8")
 offset = Vector2(13, 45)
 
@@ -231,18 +226,16 @@ texture = ExtResource("12_2bliv")
 offset = Vector2(35, 7)
 
 [node name="GBotArmR" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(-110, -157.996)
-rotation = -2.26714
-scale = Vector2(1.04158, -0.976286)
-skew = 0.00492859
+position = Vector2(-110.003, -158)
+rotation = 0.942562
+scale = Vector2(0.999999, 1.00003)
 texture = ExtResource("13_ol8m0")
 offset = Vector2(12, 31)
 
 [node name="GBotForearmR" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(-189.892, -76.9951)
-rotation = -2.26714
-scale = Vector2(2.2671, -0.504756)
-skew = 0.00492847
+position = Vector2(-210.328, -98.7224)
+rotation = 0.942562
+scale = Vector2(1.00231, 0.997735)
 texture = ExtResource("14_70ps8")
 offset = Vector2(15, 73)
 

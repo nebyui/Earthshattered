@@ -9,15 +9,14 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	player.global_position = find_child("PlayerSpawn1").global_position
 	player.player_dead.connect(_on_player_dead)
-	player.velocity.y = 10000
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	#player_exiting_level.emit()
-	call_deferred("go_to_menu", body)
+	call_deferred("go_to_main_level", body)
 		
-func go_to_menu(body):
+func go_to_main_level(body):
 	if body.name == "Player":
-		TransitionScreen.transition_to_scene("menu_scene")
+		TransitionScreen.transition_to_scene("main_scene")
 		
 
 func _on_player_dead():

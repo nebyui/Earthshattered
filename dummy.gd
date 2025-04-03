@@ -1,0 +1,67 @@
+# dummy.gd
+
+extends CharacterBody2D
+
+
+var current_animation = "none"
+
+
+
+var base_health = 100
+var current_health = base_health
+
+
+@onready var skeleton = find_child("Skeleton2D")
+var ragdoll = preload("res://player_ragdoll.tscn")
+
+
+
+
+
+func _ready() -> void:
+	pass
+	
+
+func _physics_process(delta: float) -> void:
+		
+
+	if current_health <= 0:
+		var ragdoll_instance = ragdoll.instantiate()
+		ragdoll_instance.global_position = global_position
+		ragdoll_instance.modulate = Color.from_hsv(0.26, 0.5, 1, 1 )
+		
+		var segment_group = ragdoll_instance.get_children()
+		
+		
+		for segment in segment_group:
+			if segment is RigidBody2D:
+				segment.linear_velocity = velocity * 1.5
+				var vector_temp: Vector2 = Vector2(0, randf_range(-1000, 0))
+				#var position_temp: Vector2 = Vector2(randf_range(-500, 500), randf_range(-500, 500))
+				segment.apply_impulse(vector_temp * 4, Vector2.ZERO)
+			
+		get_tree().current_scene.add_child(ragdoll_instance)
+		
+		var children = ragdoll_instance.get_children()
+		for child in children:
+			var grandchildren = child.get_children()
+			for grandchild in grandchildren:
+				if grandchild is Sprite2D:
+					if grandchild.name == "HeadSprite":
+						grandchild.scale.x = -0.6
+					else:
+						grandchild.scale.x = -1
+						
+			
+			
+		queue_free()
+		
+
+	move_and_slide()
+	
+func _process(delta: float) -> void:
+	pass
+	
+
+func take_damage(damage: int):
+	current_health -= damage

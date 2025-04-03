@@ -1,0 +1,249 @@
+[gd_scene load_steps=30 format=3 uid="uid://dve3jk5d72fnj"]
+
+[ext_resource type="Texture2D" uid="uid://dkvfi7yktls6f" path="res://gbot/gBot_hip.png" id="1_aoj8u"]
+[ext_resource type="Texture2D" uid="uid://dq2xacohdhljm" path="res://gbot/gBot_body.png" id="2_dw5r6"]
+[ext_resource type="Texture2D" uid="uid://bbbnke2vkr5g1" path="res://gbot/gBot_head.png" id="3_a1jmi"]
+[ext_resource type="Texture2D" uid="uid://imp5axpismvj" path="res://gbot/gBot_jaw.png" id="4_umufg"]
+[ext_resource type="Texture2D" uid="uid://c0bki1c8qswy5" path="res://gbot/gBot_leg_r.png" id="5_77r04"]
+[ext_resource type="Texture2D" uid="uid://c1rw5c6a2dfww" path="res://gbot/gBot_shin_r.png" id="6_h2om0"]
+[ext_resource type="Texture2D" uid="uid://brrnsd8pd7uh5" path="res://gbot/gBot_foot_r.png" id="7_kni3e"]
+[ext_resource type="Texture2D" uid="uid://c4f00jfqv683b" path="res://gbot/gBot_leg_l.png" id="8_qa3ki"]
+[ext_resource type="Texture2D" uid="uid://bjv16ch7opfn6" path="res://gbot/gBot_shin_l.png" id="9_k3ruw"]
+[ext_resource type="Texture2D" uid="uid://uv4ubn0hfnmt" path="res://gbot/gBot_foot_l.png" id="10_f2jdo"]
+[ext_resource type="Texture2D" uid="uid://csu732qhdjmjw" path="res://gbot/gBot_arm_r.png" id="11_mnypd"]
+[ext_resource type="Texture2D" uid="uid://cwk3njrh1hs3t" path="res://gbot/gBot_forearm_r.png" id="12_ukik1"]
+[ext_resource type="Texture2D" uid="uid://ddvlfqp0odhk0" path="res://gbot/gBot_arm_l.png" id="13_k2je6"]
+[ext_resource type="Texture2D" uid="uid://rnhdhm3ymcxj" path="res://gbot/gBot_forearm_l.png" id="14_3cmed"]
+[ext_resource type="Texture2D" uid="uid://cb5ja7pu6p02n" path="res://Assets/gun_sprite.png" id="14_ptpjm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pf0n6"]
+radius = 23.1944
+height = 151.075
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uo120"]
+radius = 24.6973
+height = 141.024
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pbco8"]
+radius = 80.0
+height = 220.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ebq7b"]
+radius = 12.4662
+height = 134.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ukfqe"]
+radius = 28.0
+height = 102.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_78nt0"]
+radius = 32.9971
+height = 139.994
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1h33e"]
+radius = 89.0199
+height = 188.009
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eub6d"]
+radius = 42.4719
+height = 130.014
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i0bvn"]
+radius = 13.8106
+height = 125.295
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hsrno"]
+radius = 27.0
+height = 114.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fvwhv"]
+radius = 33.0059
+height = 135.996
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cb75p"]
+radius = 27.4532
+height = 157.289
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ihv3"]
+radius = 55.3239
+height = 409.063
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a5yjm"]
+radius = 29.0649
+height = 165.961
+
+[node name="Ragdoll" type="Node2D"]
+
+[node name="ArmL" type="RigidBody2D" parent="."]
+position = Vector2(85, -144)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmL"]
+position = Vector2(-7, 8)
+rotation = 0.123235
+shape = SubResource("CapsuleShape2D_pf0n6")
+
+[node name="Sprite2D" type="Sprite2D" parent="ArmL"]
+texture = ExtResource("13_k2je6")
+
+[node name="ForarmL" type="RigidBody2D" parent="."]
+position = Vector2(92, -1)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForarmL"]
+position = Vector2(-6, -2)
+rotation = -0.30277
+shape = SubResource("CapsuleShape2D_uo120")
+
+[node name="Sprite2D" type="Sprite2D" parent="ForarmL"]
+texture = ExtResource("14_3cmed")
+
+[node name="Body" type="RigidBody2D" parent="."]
+position = Vector2(11, -141)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+position = Vector2(-2, 30)
+shape = SubResource("CapsuleShape2D_pbco8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body"]
+texture = ExtResource("2_dw5r6")
+
+[node name="LegL" type="RigidBody2D" parent="."]
+position = Vector2(55, 46)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LegL"]
+position = Vector2(6, 9)
+rotation = 0.398389
+shape = SubResource("CapsuleShape2D_ebq7b")
+
+[node name="Sprite2D" type="Sprite2D" parent="LegL"]
+texture = ExtResource("8_qa3ki")
+
+[node name="ShinL" type="RigidBody2D" parent="."]
+position = Vector2(58, 140)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShinL"]
+position = Vector2(-10, 19)
+rotation = -0.0475054
+shape = SubResource("CapsuleShape2D_ukfqe")
+
+[node name="Sprite2D" type="Sprite2D" parent="ShinL"]
+texture = ExtResource("9_k3ruw")
+
+[node name="FootL" type="RigidBody2D" parent="."]
+position = Vector2(75, 217)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FootL"]
+position = Vector2(-3, 5)
+rotation = 1.56936
+shape = SubResource("CapsuleShape2D_78nt0")
+
+[node name="Sprite2D" type="Sprite2D" parent="FootL"]
+texture = ExtResource("10_f2jdo")
+
+[node name="Head" type="RigidBody2D" parent="."]
+position = Vector2(14, -232)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
+position = Vector2(-6, -58)
+rotation = -1.58569
+shape = SubResource("CapsuleShape2D_1h33e")
+
+[node name="HeadSprite" type="Sprite2D" parent="Head"]
+position = Vector2(-10, -81)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_a1jmi")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Head/HeadSprite"]
+position = Vector2(16.6667, 135)
+texture = ExtResource("4_umufg")
+
+[node name="Base" type="RigidBody2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Base"]
+position = Vector2(2.38419e-07, -1)
+rotation = -1.55993
+shape = SubResource("CapsuleShape2D_eub6d")
+
+[node name="Sprite2D" type="Sprite2D" parent="Base"]
+texture = ExtResource("1_aoj8u")
+
+[node name="LegR" type="RigidBody2D" parent="."]
+position = Vector2(-80, 38)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LegR"]
+position = Vector2(7, 9)
+rotation = 0.377517
+shape = SubResource("CapsuleShape2D_i0bvn")
+
+[node name="Sprite2D" type="Sprite2D" parent="LegR"]
+texture = ExtResource("5_77r04")
+
+[node name="ShinR" type="RigidBody2D" parent="."]
+position = Vector2(-72, 128)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShinR"]
+position = Vector2(-10, 11)
+shape = SubResource("CapsuleShape2D_hsrno")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ShinR"]
+texture = ExtResource("6_h2om0")
+
+[node name="FootR" type="RigidBody2D" parent="."]
+position = Vector2(-47, 218)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FootR"]
+rotation = 1.57277
+shape = SubResource("CapsuleShape2D_fvwhv")
+
+[node name="Sprite2D" type="Sprite2D" parent="FootR"]
+texture = ExtResource("7_kni3e")
+
+[node name="ArmR" type="RigidBody2D" parent="."]
+position = Vector2(-65, -132)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmR"]
+position = Vector2(-8, 6)
+rotation = 0.20371
+shape = SubResource("CapsuleShape2D_cb75p")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ArmR"]
+texture = ExtResource("11_mnypd")
+
+[node name="AssaultRifle" type="RigidBody2D" parent="."]
+position = Vector2(15, -69)
+rotation = -1.41601
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AssaultRifle"]
+position = Vector2(-49, 112)
+rotation = 0.117894
+shape = SubResource("CapsuleShape2D_5ihv3")
+
+[node name="Sprite2D" type="Sprite2D" parent="AssaultRifle"]
+position = Vector2(-46, 101)
+rotation = 1.71641
+texture = ExtResource("14_ptpjm")
+
+[node name="ForarmR" type="RigidBody2D" parent="."]
+position = Vector2(-21, -23)
+rotation = -0.83226
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForarmR"]
+position = Vector2(-8, 2)
+rotation = -0.0853779
+shape = SubResource("CapsuleShape2D_a5yjm")
+
+[node name="Sprite2D" type="Sprite2D" parent="ForarmR"]
+texture = ExtResource("12_ukik1")

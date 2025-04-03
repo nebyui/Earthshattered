@@ -17,6 +17,8 @@ var respawn_countdown = respawn_timer
 var base_health = 100
 var current_health = base_health
 var direction
+var ragdoll = preload("res://player_ragdoll.tscn")
+var ragdoll_spawn = false
 
 @onready var animation_player = $AnimationPlayer
 @onready var gun_holder = find_child("GunHolder")
@@ -36,9 +38,38 @@ func _physics_process(delta: float) -> void:
 			velocity += get_gravity() * delta
 		
 	if current_health <= 0:
+		velocity = Vector2.ZERO
+		visible = false
 		set_collision_layer_value(2, false)
-		set_collision_mask_value(3, false)
-		rotation_degrees = 90
+		if ragdoll_spawn == false:
+			ragdoll_spawn = true
+			var ragdoll_instance = ragdoll.instantiate()
+			ragdoll_instance.global_position = global_position
+			
+			var segment_group = ragdoll_instance.get_children()
+			
+			
+			for segment in segment_group:
+				if segment is RigidBody2D:
+					segment.linear_velocity = velocity 
+					var vector_temp: Vector2 = Vector2(0, randf_range(-1000, 0))
+					#var position_temp: Vector2 = Vector2(randf_range(-500, 500), randf_range(-500, 500))
+					segment.apply_impulse(vector_temp * 4, Vector2.ZERO)
+				
+			get_tree().current_scene.add_child(ragdoll_instance)
+			
+			if skeleton.transform.x.x == -1:
+				var children = ragdoll_instance.get_children()
+				for child in children:
+					var grandchildren = child.get_children()
+					for grandchild in grandchildren:
+						if grandchild is Sprite2D:
+							if grandchild.name == "HeadSprite":
+								grandchild.scale.x = -0.6
+							else:
+								grandchild.scale.x = -1
+		
+		
 		if respawn_countdown == 0:
 			respawn_countdown = -1
 			player_dead.emit()
@@ -66,6 +97,8 @@ func physics_input(delta: float):
 		ray = -1
 	else:
 		ray = 0
+
+
 
 	if is_on_floor():
 		current_jumps = max_jumps
@@ -187,9 +220,9 @@ func play_animation(animation_name: String):
 		
 func respawn_player():
 	current_health = base_health
-	rotation_degrees = 0
 	set_collision_layer_value(2, true)
-	set_collision_mask_value(3, true)
+	visible = true
+	ragdoll_spawn = false
 	respawn_countdown = respawn_timer
 	
 	

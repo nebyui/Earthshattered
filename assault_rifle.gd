@@ -7,7 +7,7 @@ var fire_rate: int = 5
 var fire_timer: int = fire_rate
 var fire_ready: bool = true
 var bullet_speed: int = 15000
-var gun_damage: int = 20
+var gun_damage: int = 15
 
 var is_automatic = true
 
