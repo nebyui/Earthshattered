@@ -1,14 +1,33 @@
-[gd_scene load_steps=9 format=3 uid="uid://bl7jir2jyg2wm"]
+[gd_scene load_steps=12 format=3 uid="uid://bl7jir2jyg2wm"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_efqlg"]
 [ext_resource type="PackedScene" uid="uid://bc55nvncm2d7m" path="res://level.tscn" id="2_vsa4w"]
-[ext_resource type="AudioStream" uid="uid://c5xh37vl7mb7o" path="res://Assets/2 - Galactic Odyssey (Loop).ogg" id="4_8o7pm"]
+[ext_resource type="Texture2D" uid="uid://lmaoiknuofab" path="res://Assets/Background/middle.png" id="3_f6ei4"]
+[ext_resource type="AudioStream" uid="uid://dt63g3kjr7xvh" path="res://Assets/Underwaterbeats - Delete!.mp3" id="3_xux22"]
 [ext_resource type="PackedScene" uid="uid://cfjwca57asb0a" path="res://player.tscn" id="4_d0r1p"]
-[ext_resource type="Script" path="res://pause.gd" id="5_qiahx"]
-[ext_resource type="PackedScene" uid="uid://r686trrdryex" path="res://pause.tscn" id="7_42u7k"]
+[ext_resource type="Texture2D" uid="uid://bynq8lw6i1x2s" path="res://Assets/Background/back.png" id="6_86be5"]
+[ext_resource type="Texture2D" uid="uid://cueiuo2kaawty" path="res://Assets/Background/front.png" id="7_nd07v"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wptp0"]
 font_size = 96
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkrap"]
+bg_color = Color(0.332881, 0.332881, 0.332881, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sr5vc"]
+bg_color = Color(0.2184, 0.78, 0.546, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0, 0, 0, 1)
+border_blend = true
 
 [sub_resource type="GDScript" id="GDScript_3vkc2"]
 script/source = "extends Node2D
@@ -19,8 +38,6 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-
-	print(\"Thing\")
 
 	if Input.is_action_just_pressed(\"pause\"):
 		if get_tree().paused == false:
@@ -33,7 +50,7 @@ func _process(delta: float) -> void:
 script = ExtResource("1_efqlg")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 9
+layer = 4
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 visible = false
@@ -67,6 +84,16 @@ grow_vertical = 2
 text = "TEST"
 label_settings = SubResource("LabelSettings_wptp0")
 
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 37.0
+offset_top = 32.0
+offset_right = 839.0
+offset_bottom = 99.0
+theme_override_styles/background = SubResource("StyleBoxFlat_xkrap")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sr5vc")
+max_value = 500.0
+show_percentage = false
+
 [node name="Player" parent="." instance=ExtResource("4_d0r1p")]
 position = Vector2(1673, -32426)
 
@@ -74,8 +101,8 @@ position = Vector2(1673, -32426)
 zoom = Vector2(0.2, 0.2)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_8o7pm")
-volume_db = -10.0
+stream = ExtResource("3_xux22")
+volume_db = -40.0
 autoplay = true
 
 [node name="LevelContainer" type="Node2D" parent="."]
@@ -83,9 +110,23 @@ script = SubResource("GDScript_3vkc2")
 
 [node name="Level" parent="LevelContainer" instance=ExtResource("2_vsa4w")]
 
-[node name="Node2D" parent="." instance=ExtResource("7_42u7k")]
-script = null
+[node name="Parallax" type="Node2D" parent="."]
+visible = false
 
-[node name="pause" type="Node" parent="."]
-process_mode = 3
-script = ExtResource("5_qiahx")
+[node name="Back" type="Parallax2D" parent="Parallax"]
+scroll_offset = Vector2(-5927, -3520)
+repeat_size = Vector2(4000, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/Back"]
+texture = ExtResource("6_86be5")
+
+[node name="Middle" type="Parallax2D" parent="Parallax"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/Middle"]
+texture = ExtResource("3_f6ei4")
+
+[node name="Front" type="Parallax2D" parent="Parallax"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/Front"]
+texture = ExtResource("7_nd07v")

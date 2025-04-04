@@ -8,6 +8,10 @@ extends CanvasLayer
 signal transition_ready
 
 
+
+
+
+
 var scene_dictionary = {
 	
 	"main_scene": preload("res://main.tscn"),
@@ -20,6 +24,11 @@ var new_scene: PackedScene
 
 func _ready() -> void:
 	color_rect.visible = false
+	
+	
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("Esc"):
+		transition_to_scene("menu_scene")
 
 
 func transition_to_scene(scene_name: String):

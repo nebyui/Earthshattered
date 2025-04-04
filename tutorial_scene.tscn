@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cc6cd1it84qil"]
+[gd_scene load_steps=6 format=3 uid="uid://cc6cd1it84qil"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_pds4o"]
 [ext_resource type="PackedScene" uid="uid://cfjwca57asb0a" path="res://player.tscn" id="2_y8yyi"]
-[ext_resource type="AudioStream" uid="uid://c5xh37vl7mb7o" path="res://Assets/2 - Galactic Odyssey (Loop).ogg" id="3_6b5nr"]
+[ext_resource type="AudioStream" uid="uid://c6lmmlt37pqqn" path="res://Assets/Galactic Odyssey (Loop) - Alakrab Game Music.ogg" id="3_4x4dd"]
 [ext_resource type="PackedScene" uid="uid://dbvvd01p2fiyt" path="res://tutorial_level.tscn" id="4_fuybm"]
-[ext_resource type="Script" path="res://pause.gd" id="5_26jlg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wptp0"]
 font_size = 96
@@ -53,14 +52,10 @@ position = Vector2(1673, -32426)
 zoom = Vector2(0.2, 0.2)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_6b5nr")
-volume_db = -10.0
+stream = ExtResource("3_4x4dd")
+volume_db = -15.0
 autoplay = true
 
 [node name="LevelContainer" type="Node2D" parent="."]
 
 [node name="TutorialLevel" parent="LevelContainer" instance=ExtResource("4_fuybm")]
-
-[node name="pause" type="Node" parent="."]
-process_mode = 3
-script = ExtResource("5_26jlg")

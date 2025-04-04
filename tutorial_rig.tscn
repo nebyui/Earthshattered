@@ -1,0 +1,396 @@
+[gd_scene load_steps=26 format=3 uid="uid://d1i06sapp4ppn"]
+
+[ext_resource type="Texture2D" uid="uid://ddvlfqp0odhk0" path="res://gbot/gBot_arm_l.png" id="1_c1ksc"]
+[ext_resource type="Texture2D" uid="uid://rnhdhm3ymcxj" path="res://gbot/gBot_forearm_l.png" id="2_sqqva"]
+[ext_resource type="Texture2D" uid="uid://c4f00jfqv683b" path="res://gbot/gBot_leg_l.png" id="3_jmi6u"]
+[ext_resource type="Texture2D" uid="uid://bjv16ch7opfn6" path="res://gbot/gBot_shin_l.png" id="4_vq85g"]
+[ext_resource type="Texture2D" uid="uid://uv4ubn0hfnmt" path="res://gbot/gBot_foot_l.png" id="5_m561i"]
+[ext_resource type="Texture2D" uid="uid://dkvfi7yktls6f" path="res://gbot/gBot_hip.png" id="6_ymf7x"]
+[ext_resource type="Texture2D" uid="uid://dq2xacohdhljm" path="res://gbot/gBot_body.png" id="7_b17xw"]
+[ext_resource type="Texture2D" uid="uid://bbbnke2vkr5g1" path="res://gbot/gBot_head.png" id="8_glmt2"]
+[ext_resource type="Texture2D" uid="uid://imp5axpismvj" path="res://gbot/gBot_jaw.png" id="9_4mall"]
+[ext_resource type="Texture2D" uid="uid://c0bki1c8qswy5" path="res://gbot/gBot_leg_r.png" id="10_3rt0u"]
+[ext_resource type="Texture2D" uid="uid://c1rw5c6a2dfww" path="res://gbot/gBot_shin_r.png" id="11_asg2m"]
+[ext_resource type="Texture2D" uid="uid://brrnsd8pd7uh5" path="res://gbot/gBot_foot_r.png" id="12_700dt"]
+[ext_resource type="Texture2D" uid="uid://csu732qhdjmjw" path="res://gbot/gBot_arm_r.png" id="13_r488r"]
+[ext_resource type="Texture2D" uid="uid://cwk3njrh1hs3t" path="res://gbot/gBot_forearm_r.png" id="14_wh8nx"]
+[ext_resource type="Script" path="res://skeleton_2d.gd" id="15_wmsu6"]
+
+[sub_resource type="SkeletonModification2DJiggle" id="SkeletonModification2DJiggle_3j4ee"]
+enabled = false
+target_nodepath = NodePath("../../IK Targets/FootRTarget/FootR Lookat")
+jiggle_data_chain_length = 2
+joint_data/0/bone_index = 1
+joint_data/0/bone2d_node = NodePath("Hip/LegR")
+joint_data/0/override_defaults = false
+joint_data/1/bone_index = 2
+joint_data/1/bone2d_node = NodePath("Hip/LegR/ShinR")
+joint_data/1/override_defaults = false
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_6v4o8"]
+target_nodepath = NodePath("../../IK Targets/FootRTarget")
+tip_nodepath = NodePath("Hip/LegR/ShinR/FootR")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 1
+joint_data/0/bone2d_node = NodePath("Hip/LegR")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = 85.971
+joint_data/0/constraint_angle_max = -95.208
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 2
+joint_data/1/bone2d_node = NodePath("Hip/LegR/ShinR")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = 10.746
+joint_data/1/constraint_angle_max = 139.276
+joint_data/1/constraint_angle_invert = false
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_h7kwq"]
+bone_index = 3
+bone2d_node = NodePath("Hip/LegR/ShinR/FootR")
+target_nodepath = NodePath("../../IK Targets/FootRTarget/FootR Lookat")
+enable_constraint = true
+constraint_angle_min = 0.0
+constraint_angle_max = 360.0
+constraint_angle_invert = false
+constraint_in_localspace = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_dk0oj"]
+target_nodepath = NodePath("../../IK Targets/FootL Target")
+tip_nodepath = NodePath("Hip/LegL/ShinL/FootL")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 8
+joint_data/0/bone2d_node = NodePath("Hip/LegL")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = true
+joint_data/0/constraint_angle_min = -101.25
+joint_data/0/constraint_angle_max = 72.895
+joint_data/0/constraint_angle_invert = true
+joint_data/0/constraint_in_localspace = true
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 9
+joint_data/1/bone2d_node = NodePath("Hip/LegL/ShinL")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = -337.5
+joint_data/1/constraint_angle_max = 146.25
+joint_data/1/constraint_angle_invert = false
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_0a65v"]
+bone_index = 10
+bone2d_node = NodePath("Hip/LegL/ShinL/FootL")
+target_nodepath = NodePath("../../IK Targets/FootL Target/FootL Lookat")
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_gou67"]
+target_nodepath = NodePath("../../IK Targets/ArmR Target")
+tip_nodepath = NodePath("Hip/ArmR/ForearmR/ForearmR Marker")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 4
+joint_data/0/bone2d_node = NodePath("Hip/ArmR")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 5
+joint_data/1/bone2d_node = NodePath("Hip/ArmR/ForearmR")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = -146.25
+joint_data/1/constraint_angle_max = 360.0
+joint_data/1/constraint_angle_invert = false
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_wrcm7"]
+target_nodepath = NodePath("../../IK Targets/ArmL Target")
+tip_nodepath = NodePath("Hip/ArmL/ForearmL/ForearmL Marker")
+ccdik_data_chain_length = 2
+joint_data/0/bone_index = 11
+joint_data/0/bone2d_node = NodePath("Hip/ArmL")
+joint_data/0/rotate_from_joint = false
+joint_data/0/enable_constraint = false
+joint_data/0/editor_draw_gizmo = true
+joint_data/1/bone_index = 12
+joint_data/1/bone2d_node = NodePath("Hip/ArmL/ForearmL")
+joint_data/1/rotate_from_joint = false
+joint_data/1/enable_constraint = true
+joint_data/1/constraint_angle_min = -135.0
+joint_data/1/constraint_angle_max = 360.0
+joint_data/1/constraint_angle_invert = false
+joint_data/1/constraint_in_localspace = true
+joint_data/1/editor_draw_gizmo = true
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_divj1"]
+enabled = true
+modification_count = 7
+modifications/0 = SubResource("SkeletonModification2DJiggle_3j4ee")
+modifications/1 = SubResource("SkeletonModification2DCCDIK_6v4o8")
+modifications/2 = SubResource("SkeletonModification2DLookAt_h7kwq")
+modifications/3 = SubResource("SkeletonModification2DCCDIK_dk0oj")
+modifications/4 = SubResource("SkeletonModification2DLookAt_0a65v")
+modifications/5 = SubResource("SkeletonModification2DCCDIK_gou67")
+modifications/6 = SubResource("SkeletonModification2DCCDIK_wrcm7")
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_60n3y"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7rel0"]
+
+[node name="Tutorial" type="Node2D"]
+position = Vector2(823, 591)
+
+[node name="CharacterContainer" type="Node2D" parent="."]
+
+[node name="Body" type="Node2D" parent="CharacterContainer"]
+
+[node name="GBotArmL" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(66, -177)
+rotation = -0.536493
+texture = ExtResource("1_c1ksc")
+offset = Vector2(4, 32)
+
+[node name="GBotForearmL" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(108.517, -85.9382)
+rotation = -0.536493
+scale = Vector2(0.999999, 0.999999)
+texture = ExtResource("2_sqqva")
+offset = Vector2(22, 64)
+
+[node name="GBotLegL" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(61, -2)
+rotation = -0.612773
+scale = Vector2(0.999999, 0.999999)
+texture = ExtResource("3_jmi6u")
+offset = Vector2(-17, 50)
+
+[node name="GBotShinL" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(92.4893, 93.2117)
+rotation = 0.425822
+scale = Vector2(0.999999, 0.999999)
+texture = ExtResource("4_vq85g")
+offset = Vector2(20, 44)
+
+[node name="GBotFootL" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(41.9999, 190)
+rotation = 0.00961405
+texture = ExtResource("5_m561i")
+offset = Vector2(48, 13)
+
+[node name="GBotHip" type="Sprite2D" parent="CharacterContainer/Body"]
+texture = ExtResource("6_ymf7x")
+
+[node name="GBotBody" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(15, -148)
+texture = ExtResource("7_b17xw")
+
+[node name="GBotHead" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(-12, -232)
+texture = ExtResource("8_glmt2")
+offset = Vector2(18.5, -165)
+
+[node name="GBotJaw" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(-109, -278)
+texture = ExtResource("9_4mall")
+offset = Vector2(126.5, 8)
+
+[node name="GBotLegR" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(-78, 0)
+rotation = -0.672794
+texture = ExtResource("10_3rt0u")
+offset = Vector2(-5, 51)
+
+[node name="GBotShinR" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(-28.6476, 79.5884)
+rotation = 0.781834
+scale = Vector2(0.999999, 0.999999)
+texture = ExtResource("11_asg2m")
+offset = Vector2(13, 45)
+
+[node name="GBotFootR" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(-109, 152)
+rotation = -0.00917347
+scale = Vector2(0.999999, 0.999999)
+texture = ExtResource("12_700dt")
+offset = Vector2(35, 7)
+
+[node name="GBotArmR" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(-110, -158)
+rotation = 0.942487
+texture = ExtResource("13_r488r")
+offset = Vector2(12, 31)
+
+[node name="GBotForearmR" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(-210.312, -98.7169)
+rotation = 0.942487
+texture = ExtResource("14_wh8nx")
+offset = Vector2(15, 73)
+
+[node name="Bones" type="Node2D" parent="CharacterContainer"]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="CharacterContainer/Bones"]
+modification_stack = SubResource("SkeletonModificationStack2D_divj1")
+script = ExtResource("15_wmsu6")
+
+[node name="Hip" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="LegR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip"]
+position = Vector2(-78, 0)
+rest = Transform2D(1, 0, 0, 1, -78, 0)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegR"]
+remote_path = NodePath("../../../../../Body/GBotLegR")
+
+[node name="ShinR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegR"]
+position = Vector2(-11.0001, 93)
+rotation = 0.187553
+rest = Transform2D(1, 0, 0, 1, -11, 93)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegR/ShinR"]
+remote_path = NodePath("../../../../../../Body/GBotShinR")
+
+[node name="FootR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegR/ShinR"]
+position = Vector2(-6, 108)
+rest = Transform2D(1, 0, 0, 1, -6, 108)
+auto_calculate_length_and_angle = false
+length = 67.667
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegR/ShinR/FootR"]
+remote_path = NodePath("../../../../../../../Body/GBotFootR")
+
+[node name="ArmR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip"]
+position = Vector2(-110, -158)
+rotation = 0.942487
+rest = Transform2D(1, 0, 0, 1, -110, -158)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmR"]
+remote_path = NodePath("../../../../../Body/GBotArmR")
+
+[node name="ForearmR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmR"]
+position = Vector2(-11, 116)
+rest = Transform2D(1, 0, 0, 1, -11, 116)
+auto_calculate_length_and_angle = false
+length = 134.833
+bone_angle = 85.898
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmR/ForearmR"]
+remote_path = NodePath("../../../../../../Body/GBotForearmR")
+
+[node name="ForearmR Marker" type="Marker2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmR/ForearmR"]
+position = Vector2(10.3039, 130.447)
+
+[node name="Head" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip"]
+position = Vector2(-12, -232)
+rest = Transform2D(1, 0, 0, 1, -12, -232)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/Head"]
+remote_path = NodePath("../../../../../Body/GBotHead")
+
+[node name="Jaw" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/Head"]
+position = Vector2(-97, -46)
+rest = Transform2D(1, 0, 0, 1, -97, -46)
+auto_calculate_length_and_angle = false
+length = 212.333
+bone_angle = 0.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/Head/Jaw"]
+remote_path = NodePath("../../../../../../Body/GBotJaw")
+
+[node name="LegL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip"]
+position = Vector2(61, -2)
+rest = Transform2D(1, 0, 0, 1, 61, -2)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegL"]
+remote_path = NodePath("../../../../../Body/GBotLegL")
+
+[node name="ShinL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegL"]
+position = Vector2(-29, 96)
+rest = Transform2D(1, 0, 0, 1, -29, 96)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegL/ShinL"]
+remote_path = NodePath("../../../../../../Body/GBotShinL")
+
+[node name="FootL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegL/ShinL"]
+position = Vector2(-6, 109)
+rest = Transform2D(1, 0, 0, 1, -6, 109)
+auto_calculate_length_and_angle = false
+length = 88.333
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegL/ShinL/FootL"]
+remote_path = NodePath("../../../../../../../Body/GBotFootL")
+
+[node name="ArmL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip"]
+position = Vector2(66, -177)
+rest = Transform2D(1, 0, 0, 1, 66, -177)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmL"]
+remote_path = NodePath("../../../../../Body/GBotArmL")
+
+[node name="ForearmL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmL"]
+position = Vector2(-10, 100)
+rest = Transform2D(1, 0, 0, 1, -10, 100)
+auto_calculate_length_and_angle = false
+length = 109.0
+bone_angle = 78.353
+metadata/_local_pose_override_enabled_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmL/ForearmL"]
+remote_path = NodePath("../../../../../../Body/GBotForearmL")
+
+[node name="ForearmL Marker" type="Marker2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmL/ForearmL"]
+position = Vector2(22, 105)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip"]
+remote_path = NodePath("../../../../Body/GBotHip")
+
+[node name="RemoteTransform2D2" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip"]
+position = Vector2(15, -148)
+remote_path = NodePath("../../../../Body/GBotBody")
+
+[node name="IK Targets" type="Node2D" parent="CharacterContainer"]
+
+[node name="FootRTarget" type="Node2D" parent="CharacterContainer/IK Targets"]
+position = Vector2(-109, 152)
+
+[node name="FootR Lookat" type="Node2D" parent="CharacterContainer/IK Targets/FootRTarget"]
+position = Vector2(109, -1)
+
+[node name="FootL Target" type="Node2D" parent="CharacterContainer/IK Targets"]
+position = Vector2(42, 190)
+
+[node name="FootL Lookat" type="Node2D" parent="CharacterContainer/IK Targets/FootL Target"]
+position = Vector2(104, 1)
+
+[node name="ArmR Target" type="Node2D" parent="CharacterContainer/IK Targets"]
+position = Vector2(-398, 50)
+
+[node name="ArmL Target" type="Node2D" parent="CharacterContainer/IK Targets"]
+position = Vector2(200, 21)
+
+[node name="Head Target" type="Node2D" parent="CharacterContainer/IK Targets"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_60n3y")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(19, 288)
+scale = Vector2(751.5, 70.5)
+texture = SubResource("PlaceholderTexture2D_7rel0")

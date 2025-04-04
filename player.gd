@@ -14,11 +14,12 @@ var current_animation = "none"
 var respawn_timer = 120
 var respawn_countdown = respawn_timer
 
-var base_health = 100
+var base_health = 5000000000
 var current_health = base_health
 var direction
 var ragdoll = preload("res://player_ragdoll.tscn")
 var ragdoll_spawn = false
+var wall_cling_sound_played = false
 
 @onready var animation_player = $AnimationPlayer
 @onready var gun_holder = find_child("GunHolder")
@@ -38,7 +39,7 @@ func _physics_process(delta: float) -> void:
 			velocity += get_gravity() * delta
 		
 	if current_health <= 0:
-		velocity = Vector2.ZERO
+		play_animation("stand")
 		visible = false
 		set_collision_layer_value(2, false)
 		if ragdoll_spawn == false:
@@ -69,6 +70,8 @@ func _physics_process(delta: float) -> void:
 							else:
 								grandchild.scale.x = -1
 		
+			$SoundEffects/Explosion.play_explosion()
+		velocity = Vector2.ZERO
 		
 		if respawn_countdown == 0:
 			respawn_countdown = -1
@@ -126,6 +129,7 @@ func physics_input(delta: float):
 				play_animation("stand")
 			velocity.x = move_toward(velocity.x, 0, base_speed / 3)
 		if Input.is_action_just_pressed("jump"):
+			$SoundEffects/Jump.play_jump("low")
 			play_animation("jump_ground")
 			velocity.y = jump_strength
 			current_jumps -= 1
@@ -134,6 +138,9 @@ func physics_input(delta: float):
 		if current_jumps == max_jumps:
 			current_jumps -= 1
 		if ray != 0:
+			if wall_cling_sound_played == false:
+				$SoundEffects/WallGrab.play_wall_grab()
+			wall_cling_sound_played = true
 			if ray == 1:
 				if skeleton.transform.x.x == 1:
 					play_animation("front_wall_cling")
@@ -145,19 +152,32 @@ func physics_input(delta: float):
 				elif skeleton.transform.x.x == -1:
 					play_animation("front_wall_cling")
 		else:
-			if current_animation != "jump_ground" and current_animation != "jump_air":
+			wall_cling_sound_played = false
+			if current_animation != "jump_ground" and current_animation != "jump_air"\
+			and current_animation != "back_wall_jump" and current_animation != "front_wall_jump":
 				play_animation("falling")
 		
 		if Input.is_action_just_pressed("jump"):
 			if ray == 1:
+				$SoundEffects/Jump.play_jump("low")
 				velocity.y = jump_strength
 				velocity.x = jump_strength
 				current_jumps = max_jumps - 1
+				if skeleton.transform.x.x == 1:
+					play_animation("front_wall_jump")
+				elif skeleton.transform.x.x == -1:
+					play_animation("back_wall_jump")
 			elif ray == -1:
+				$SoundEffects/Jump.play_jump("low")
 				velocity.y = jump_strength
 				velocity.x = - jump_strength
 				current_jumps = max_jumps - 1
+				if skeleton.transform.x.x == 1:
+					play_animation("back_wall_jump")
+				elif skeleton.transform.x.x == -1:
+					play_animation("front_wall_jump")
 			elif current_jumps > 0:
+				$SoundEffects/Jump.play_jump("high")
 				play_animation("jump_air")
 				if direction == 1:
 					if !velocity.x > base_speed:
@@ -196,6 +216,7 @@ func process_input():
 
 func take_damage(damage: int):
 	current_health -= damage
+	$SoundEffects/Hit.play_hit("high", current_health)
 	
 func shooting_visuals():
 	if global_position.x < get_global_mouse_position().x:

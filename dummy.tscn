@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dd3hmkq7f15q"]
+[gd_scene load_steps=40 format=3 uid="uid://dd3hmkq7f15q"]
 
 [ext_resource type="Script" path="res://dummy.gd" id="1_180ko"]
 [ext_resource type="Texture2D" uid="uid://ddvlfqp0odhk0" path="res://gbot/gBot_arm_l.png" id="2_ktnri"]
@@ -21,6 +21,10 @@
 [ext_resource type="Script" path="res://Enemy/Behavior Tree/attack.gd" id="19_rsa1n"]
 [ext_resource type="Script" path="res://Enemy/Behavior Tree/back_up.gd" id="20_dkpnb"]
 [ext_resource type="Script" path="res://Enemy/Behavior Tree/idle.gd" id="21_702q5"]
+[ext_resource type="AudioStream" uid="uid://juba1cvs2yov" path="res://Assets/SoundEffects/footstep.mp3" id="22_b4t3h"]
+[ext_resource type="Script" path="res://sound_effects.gd" id="23_a3jwf"]
+[ext_resource type="AudioStream" uid="uid://bvfik130tqs3t" path="res://Assets/SoundEffects/explosion.mp3" id="24_da11w"]
+[ext_resource type="AudioStream" uid="uid://br0m2bq2t2uqe" path="res://Assets/SoundEffects/hit_d_soft.mp3" id="25_q2lpx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c2yhw"]
 radius = 133.0
@@ -2241,3 +2245,23 @@ collision_mask = 4
 [node name="EnemyRayRight" type="RayCast2D" parent="."]
 target_position = Vector2(200, 0)
 collision_mask = 4
+
+[node name="SoundEffects" type="Node2D" parent="."]
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="SoundEffects"]
+stream = ExtResource("22_b4t3h")
+volume_db = -15.0
+max_distance = 11195.0
+script = ExtResource("23_a3jwf")
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="SoundEffects"]
+stream = ExtResource("24_da11w")
+volume_db = -15.0
+max_distance = 13770.0
+script = ExtResource("23_a3jwf")
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="SoundEffects"]
+stream = ExtResource("25_q2lpx")
+volume_db = -16.0
+max_distance = 10835.0
+script = ExtResource("23_a3jwf")

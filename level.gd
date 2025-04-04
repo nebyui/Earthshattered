@@ -23,7 +23,7 @@ func go_to_menu(body):
 func _on_player_dead():
 	TransitionScreen.respawn_transition()
 	await TransitionScreen.transition_ready
-	player.respawn_player()
 	player.global_position = $PlayerSpawnPoints.current_spawn_point.global_position
+	player.respawn_player()
 	
 	

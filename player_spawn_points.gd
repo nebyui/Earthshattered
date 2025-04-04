@@ -15,5 +15,5 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	for spawn_point in get_children():
 		distance_to_player = (spawn_point.global_position - player.global_position).length()
-		if distance_to_player < 1000:
+		if distance_to_player < 2000:
 			current_spawn_point = spawn_point

@@ -6,7 +6,7 @@ var bullet = preload("res://bullet.tscn")
 var fire_rate: int = 5
 var fire_timer: int = fire_rate
 var fire_ready: bool = true
-var bullet_speed: int = 15000
+var bullet_speed: int = 18000
 var gun_damage: int = 15
 
 var is_automatic = true
@@ -44,7 +44,7 @@ func trigger_pressed(character: String):
 			bullet_instance.set_collision_mask_value(3, true)
 		elif character == "enemy":
 			bullet_instance.set_collision_mask_value(2, true)
-			bullet_instance.speed /= 2
+			bullet_instance.speed = 7000
 			gun_sound.pitch_scale -= .4
 		bullet_instance.global_position = gun_barrel.global_position
 		bullet_instance.rotation = global_rotation

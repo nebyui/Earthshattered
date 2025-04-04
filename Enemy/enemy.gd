@@ -11,6 +11,7 @@ var max_jumps: int = 2
 var current_jumps: int = max_jumps
 var ray
 var enemy_ray
+var floor_ray
 var is_shooting = false
 var current_animation = "none"
 
@@ -28,12 +29,16 @@ var player_direction = 0
 @onready var gun_holder = find_child("GunHolder")
 @onready var skeleton = find_child("Skeleton2D")
 var ragdoll = preload("res://player_ragdoll.tscn")
+var ragdoll_spawn = false
+var respawn_timer = 120
+var respawn_countdown = respawn_timer
 
 var player
 var behavior_lock_timer = 0
 var random_behavior_timer_base = 120
 var random_behavior_timer = random_behavior_timer_base
 var random_behavior_number = 0
+var sound_player
 
 var player_position
 var distance_to_player: float
@@ -43,6 +48,7 @@ func _ready() -> void:
 	floor_snap_length = 200
 	if player_group.size() > 0:
 		player = player_group[0]
+	sound_player = $SoundEffects.get_child(0)
 	
 
 func _physics_process(delta: float) -> void:
@@ -63,6 +69,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		ray = 0
 	
+	
+	
 	if $EnemyRayLeft.is_colliding() and $EnemyRayRight.is_colliding():
 		enemy_ray = 0
 	elif $EnemyRayLeft.is_colliding():
@@ -71,6 +79,17 @@ func _physics_process(delta: float) -> void:
 		enemy_ray = 1
 	else:
 		enemy_ray = 0
+	
+	if $LeftFloorRay.is_colliding() and $RightFloorRay.is_colliding():
+		floor_ray = 2
+	elif $LeftFloorRay.is_colliding():
+		floor_ray = -1
+	elif $RightFloorRay.is_colliding():
+		floor_ray = 1
+	else:
+		floor_ray = 0
+		
+	#print(floor_ray)
 	
 	
 	if player and is_instance_valid(player):
@@ -84,36 +103,46 @@ func _physics_process(delta: float) -> void:
 			player_direction = 0
 	
 	if current_health <= 0:
-		var ragdoll_instance = ragdoll.instantiate()
-		ragdoll_instance.global_position = global_position
-		ragdoll_instance.modulate = Color.from_hsv(0.97, 0.5, 1, 1 )
-		
-		var segment_group = ragdoll_instance.get_children()
-		
-		
-		for segment in segment_group:
-			if segment is RigidBody2D:
-				segment.linear_velocity = velocity * 1.5
-				var vector_temp: Vector2 = Vector2(0, randf_range(-1000, 0))
-				#var position_temp: Vector2 = Vector2(randf_range(-500, 500), randf_range(-500, 500))
-				segment.apply_impulse(vector_temp * 4, Vector2.ZERO)
+		play_animation("stand")
+		visible = false
+		set_collision_layer_value(3, false)
+		if ragdoll_spawn == false:
+			ragdoll_spawn = true
+			var ragdoll_instance = ragdoll.instantiate()
+			ragdoll_instance.global_position = global_position
 			
-		get_tree().current_scene.add_child(ragdoll_instance)
+			var segment_group = ragdoll_instance.get_children()
+			
+			ragdoll_instance.modulate = Color.from_hsv(0.97, 0.5, 1, 1 )
+			
+			for segment in segment_group:
+				if segment is RigidBody2D:
+					segment.linear_velocity = velocity 
+					var vector_temp: Vector2 = Vector2(0, randf_range(-1000, 0))
+					#var position_temp: Vector2 = Vector2(randf_range(-500, 500), randf_range(-500, 500))
+					segment.apply_impulse(vector_temp * 4, Vector2.ZERO)
+				
+			get_tree().current_scene.add_child(ragdoll_instance)
+			
+			if skeleton.transform.x.x == -1:
+				var children = ragdoll_instance.get_children()
+				for child in children:
+					var grandchildren = child.get_children()
+					for grandchild in grandchildren:
+						if grandchild is Sprite2D:
+							if grandchild.name == "HeadSprite":
+								grandchild.scale.x = -0.6
+							else:
+								grandchild.scale.x = -1
 		
-		if skeleton.transform.x.x == -1:
-			var children = ragdoll_instance.get_children()
-			for child in children:
-				var grandchildren = child.get_children()
-				for grandchild in grandchildren:
-					if grandchild is Sprite2D:
-						if grandchild.name == "HeadSprite":
-							grandchild.scale.x = -0.6
-						else:
-							grandchild.scale.x = -1
-						
-			
-			
-		queue_free()
+			$SoundEffects/Explosion.play_explosion()
+		velocity = Vector2.ZERO
+		
+		if respawn_countdown == 0:
+			respawn_countdown = -1
+			queue_free()
+		else:
+			respawn_countdown -= 1
 		
 		
 		
@@ -151,20 +180,23 @@ func enemy_behavior():
 	animation_player.speed_scale = 1
 	
 	if is_on_floor():
+
+		if floor_ray != 2:
+			if floor_ray == 1:
+				velocity.y = jump_strength
+				velocity.x = jump_strength
+				play_animation("jump_floor")
+			elif floor_ray == -1:
+				velocity.y = jump_strength
+				velocity.x = -jump_strength
+				play_animation("jump_floor")
+			elif floor_ray == 2:
+				velocity.y = jump_strength
+				play_animation("jump_floor")
+			else:
+				pass
 		
-		if enemy_ray != 0:
-			if enemy_ray == 1:
-				velocity.x = move_toward(velocity.x, -base_speed, 100)
-			elif enemy_ray == -1:
-				velocity.x = move_toward(velocity.x, base_speed, 100)
-			
-			if is_on_floor():
-				play_animation("run")
-			print("ENEMY RAY")
-			return
-		
-		
-		if distance_to_player <= 5100: # Attack
+		elif distance_to_player <= 5100: # Attack
 			if distance_to_player >= 5000:
 				velocity.x = player_direction * shooting_speed
 				play_animation("strafe")
@@ -185,16 +217,18 @@ func enemy_behavior():
 			elif player_direction == -1:
 				skeleton.transform.x.x = -1
 			
-			$Skeleton2D/Base/Body/ArmR.look_at(player.global_position)
-			$Skeleton2D/Base/Body/ArmR/ForearmR.rotation_degrees = -90
-			$Skeleton2D/Base/Body/Head.look_at(player.global_position)
+			if player and is_instance_valid(player):
+				$Skeleton2D/Base/Body/ArmR.look_at(player.global_position)
+				$Skeleton2D/Base/Body/ArmR/ForearmR.rotation_degrees = -90
+				$Skeleton2D/Base/Body/Head.look_at(player.global_position)
 			
 			if shoot_timer <= 0:
 				shoot_timer = shoot_timer_base
 			else:
 				shoot_timer -= 1
-				if shoot_timer <= 60:
-					gun_holder.enemy_shoot()
+				if shoot_timer <= 90:
+					if player.current_health > 0:
+						gun_holder.enemy_shoot()
 					
 		elif distance_to_player < 2000: # Back Up
 			#direction *= -1
@@ -213,6 +247,38 @@ func enemy_behavior():
 			velocity.x = move_toward(velocity.x, 0, base_speed)
 			play_animation("stand")
 			arm_position()
+			
+	elif !is_on_floor():
+		
+		if ray != 0:
+			if ray == 1:
+				velocity.y = jump_strength
+				velocity.x = jump_strength
+				if skeleton.transform.x.x == 1:
+					play_animation("front_wall_jump")
+				elif skeleton.transform.x.x == -1:
+					play_animation("back_wall_jump")
+			elif ray == -1:
+				velocity.y = jump_strength
+				velocity.x = -jump_strength
+				if skeleton.transform.x.x == 1:
+					play_animation("back_wall_jump")
+				elif skeleton.transform.x.x == -1:
+					play_animation("front_wall_jump")
+		else:
+			if current_animation != "jump_ground" and current_animation != "jump_air"\
+			and current_animation != "back_wall_jump" and current_animation != "front_wall_jump":
+				play_animation("falling")
+				
+				
+		if distance_to_player <= 5100: # Attack	
+			if shoot_timer <= 0:
+				shoot_timer = shoot_timer_base
+			else:
+				shoot_timer -= 1
+				if shoot_timer <= 90:
+					if player.current_health > 0:
+						gun_holder.enemy_shoot()
 	
 	
 func play_animation(animation_name: String):
@@ -222,6 +288,7 @@ func play_animation(animation_name: String):
 		
 func take_damage(damage: int):
 	current_health -= damage
+	$SoundEffects/Hit.play_hit("low", current_health)
 
 
 func arm_position():
