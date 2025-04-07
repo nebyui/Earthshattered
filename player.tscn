@@ -2624,5 +2624,5 @@ script = ExtResource("18_enyyr")
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="SoundEffects"]
 stream = ExtResource("23_ju6qv")
-volume_db = -18.0
+volume_db = -23.0
 script = ExtResource("18_enyyr")

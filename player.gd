@@ -14,7 +14,7 @@ var current_animation = "none"
 var respawn_timer = 120
 var respawn_countdown = respawn_timer
 
-var base_health = 5000000000
+var base_health = 600
 var current_health = base_health
 var direction
 var ragdoll = preload("res://player_ragdoll.tscn")

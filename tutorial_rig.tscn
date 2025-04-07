@@ -178,6 +178,7 @@ offset = Vector2(20, 44)
 [node name="GBotFootL" type="Sprite2D" parent="CharacterContainer/Body"]
 position = Vector2(41.9999, 190)
 rotation = 0.00961405
+scale = Vector2(1, 1)
 texture = ExtResource("5_m561i")
 offset = Vector2(48, 13)
 
@@ -201,6 +202,7 @@ offset = Vector2(126.5, 8)
 [node name="GBotLegR" type="Sprite2D" parent="CharacterContainer/Body"]
 position = Vector2(-78, 0)
 rotation = -0.672794
+scale = Vector2(1, 1)
 texture = ExtResource("10_3rt0u")
 offset = Vector2(-5, 51)
 
@@ -221,11 +223,12 @@ offset = Vector2(35, 7)
 [node name="GBotArmR" type="Sprite2D" parent="CharacterContainer/Body"]
 position = Vector2(-110, -158)
 rotation = 0.942487
+scale = Vector2(1, 1)
 texture = ExtResource("13_r488r")
 offset = Vector2(12, 31)
 
 [node name="GBotForearmR" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(-210.312, -98.7169)
+position = Vector2(-210.312, -98.717)
 rotation = 0.942487
 texture = ExtResource("14_wh8nx")
 offset = Vector2(15, 73)

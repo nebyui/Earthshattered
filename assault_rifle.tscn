@@ -16,5 +16,5 @@ position = Vector2(270, 0)
 
 [node name="GunSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_viw0t")
-volume_db = -5.0
+volume_db = -9.0
 max_distance = 10000.0

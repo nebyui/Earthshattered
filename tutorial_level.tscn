@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbvvd01p2fiyt"]
+[gd_scene load_steps=9 format=3 uid="uid://dbvvd01p2fiyt"]
 
 [ext_resource type="Script" path="res://tutorial_level.gd" id="1_u4v77"]
 [ext_resource type="Script" path="res://collision_polygon.gd" id="2_j7w4f"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://player_spawn_points.gd" id="4_y607d"]
 [ext_resource type="FontFile" uid="uid://rh2en53kqen" path="res://alagard.ttf" id="5_1g68g"]
 [ext_resource type="PackedScene" uid="uid://dd3hmkq7f15q" path="res://dummy.tscn" id="6_hmhlc"]
-[ext_resource type="PackedScene" uid="uid://cynnehpoapset" path="res://Enemy/enemy.tscn" id="7_yiyk0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eebqn"]
 size = Vector2(6731, 5334)
@@ -172,8 +171,5 @@ position = Vector2(30841, -11703)
 
 [node name="Dummy5" parent="Node2D" instance=ExtResource("6_hmhlc")]
 position = Vector2(29160, -10268)
-
-[node name="Enemy" parent="." instance=ExtResource("7_yiyk0")]
-position = Vector2(26617, -10349)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
